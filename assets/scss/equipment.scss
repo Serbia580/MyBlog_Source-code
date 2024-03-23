@@ -3,7 +3,7 @@
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: var(--section-separation); /* 中间空10px间距 */
-	@include respond(2xl) {
+	@include respond(lg) {
 		grid-template-columns: repeat(4, 1fr);
 		gap: var(--section-separation); /* 中间空10px间距 */
 	  }	

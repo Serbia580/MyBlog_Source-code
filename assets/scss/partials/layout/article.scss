@@ -13,7 +13,6 @@
         box-shadow: var(--shadow-l1);
         overflow: hidden;
         width: 100%;
-        max-width: var(--article-max-width);
         margin-left: auto;
         margin-right: auto;
 
@@ -183,7 +182,6 @@
 }
 .related-content--wrapper {
     width: 100%;
-    max-width: var(--article-max-width);
     margin-left: auto;
     margin-right: auto;
 }

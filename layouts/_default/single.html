@@ -37,12 +37,6 @@
     {{ end }}
 
     {{ partialCached "footer/footer" . }}
-    <script>
-        var twikooElements = document.querySelectorAll('footer.site-footer');
-        twikooElements.forEach(function(element) {
-            element.style.maxWidth = 'var(--article-max-width)'; 
-        });
-    </script>
 {{ end }}
 
 {{ define "right-sidebar" }}

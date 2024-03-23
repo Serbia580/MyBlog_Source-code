@@ -10,10 +10,8 @@
     {{ end }}
 
     {{ partialCached "footer/footer" . }}
-    <script>
-        var twikooElements = document.querySelectorAll('#twikoo');
-        twikooElements.forEach(function(element) {
-            element.style.maxWidth = 'none'; 
-        });
-    </script>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}

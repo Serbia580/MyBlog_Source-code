@@ -1,0 +1,61 @@
+{{ define "body-class" }}template-about{{ end }}
+{{ define "main" }}
+<div class="about">
+    <div class="info">
+        <div class="card">
+            <div class="name">
+                <h2>Morick</h2>
+                <p>莫里克</p>
+            </div>
+        </div>
+        <div class="motto card">
+            <h1>页面装修中。。。。</h1>
+        </div>
+    </div>
+    <div class="aboutMe card">
+        <span class="img">
+            <img src="/images/Me.png" alt="">
+        </span>
+        <span class="introduction">
+            <h3>关于我</h3>
+        </span>
+    </div>
+    <div class="interest">
+        <div class="interest-card card">
+            <h3>我的兴趣</h3>
+            <p>
+                <ul>
+                    <li>折腾属性爆炸</li>
+                    <li>沉迷朋克音乐</li>
+                    <li>软件工具爱好者</li>
+                    <li>都市传说真有趣</li>
+                </ul>
+            </p>
+        </div>
+        <div class="interest-img card">
+            <!-- <img src="{{ .Params.image }}" alt=""> -->
+        </div>
+    </div>
+    <div class="skill card">
+        <h3>无限进步！</h3>
+    </div>
+
+    <div class="aboutSite">
+        <div class="about-site card">
+            <h3>关于本站</h3>
+        </div>
+        <div class="statistic card">
+            <h3>数据统计</h3>
+        </div>
+    </div>
+</div>
+
+    {{ if not (eq .Params.comments false) }}
+        {{ partial "comments/include" . }}
+    {{ end }}
+    {{ partialCached "footer/footer" . }}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
