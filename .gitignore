@@ -4,9 +4,11 @@
 @Extras
 # 博客内容
 content/post
+
 # 网站
 public
 resources
+assets/
 
 # 忽略
 .gitignore
