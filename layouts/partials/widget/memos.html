@@ -1,0 +1,225 @@
+<style>
+  /* 页面初始化 */
+  div#memos {
+    background: none;
+    border: 0;
+    padding: 0;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .memos_item {
+    background: var(--card-background);
+    box-shadow: var(--shadow-l1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+  }
+
+  /* 页面初始化结束 */
+
+  #memos {
+    margin-top: 0rem;
+  }
+
+  #memos .loading {
+    color: var(--card-text-color-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #memos .loading img {
+    width: 200px;
+  }
+
+  .memos_item {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .memos_bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    line-height: 1.5;
+  }
+  .memos_bottom {
+    justify-content: space-between;
+  }
+
+  span.memos_date {
+    color: var(--card-text-color-main);
+    opacity: 0.6;
+  }
+
+  .memos_content {
+    color: var(--card-text-color-main);
+    line-height: 1.5;
+  }
+  .zone_imgbox {
+    display: flex;
+    flex-wrap: wrap;
+    --w: calc(25% - 8px);
+    gap: 10px;
+    margin-top: 5px;
+  }
+  .zone_imgbox a {
+    display: block;
+    border-radius: 12px;
+    width: var(--w);
+    aspect-ratio: 1/1;
+    position: relative;
+  }
+
+  .zone_imgbox img {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    object-fit: cover;
+  }
+  /* 底部 */
+
+  .memos_bottom {
+    opacity: 0.9;
+  }
+  .memos_bottom .icon {
+    color: var(--card-text-color-main);
+    float: right;
+    transition: all 0.3s;
+  }
+
+  .memos_bottom .icon:hover {
+    color: #49b1f5;
+  }
+
+  .memos_content > a {
+    margin: 0 3px;
+    color: #ff7d73 !important;
+  }
+  .memos_content > a:hover {
+    text-decoration: none !important;
+    color: #ff5143 !important;
+  }
+
+  /* 提醒 */
+
+  .limit {
+    transition: all 0.3s ease-in-out;
+    color: var(--card-text-color-main);
+  }
+
+  .limit {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--card-text-color-main);
+  }
+
+</style>
+<h2 class="section-title" style="margin: 0;">MEMOS</h2>
+<div id="memos">
+  <div class="loading">加载中。。。</div>
+</div>
+<div class="limit">- 只展示最近10条MEMOS -
+  <br><a href="https://memos.morick66.com/explore">- 查看更多 -</a>
+</div>
+<script>
+  if (1) {
+    let url = "https://memos.morick66.com";
+    fetch(url + "/api/v1/memo?creatorId=1&limit=10")
+      .then((res) => res.json())
+      .then((data) => {
+        // 注意修改域名和用户id
+        let items = [],
+          html = "";
+        data.forEach((item) => {
+          items.push(Format(item));
+        });
+        if (items.length == 10)
+          document.querySelector(".limit").style.display = "block";
+        items.forEach((item) => {
+          html += `
+          <div class="memos_item">
+            <div class="memos_content">${item.content}</div>
+            <div class="memos_bottom">
+              <div>
+                <span class="memos_date">${item.date}</span>
+              </div>
+              <a href="${url}/m/${item.name}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z"/>
+                  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+                  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+                </svg>
+              </a>
+              </div></div>`; // 注意修改头像链接和名称
+        });
+        document.getElementById("memos").innerHTML = html;
+      });
+    // 页面内容格式化
+    function Format(item) {
+      let date = getTime(new Date(item.createdTs * 1000).toString()),
+        name = item.name,
+        content = item.content,
+        imgs = content.match(/!\[.*\]\(.*?\)/g),
+        text = "";
+      if (imgs)
+        imgs = imgs.map((item) => {
+          return item.replace(/!\[.*\]\((.*?)\)/, "$1");
+        });
+      if (item.resourceList.length) {
+        if (!imgs) imgs = [];
+        item.resourceList.forEach((t) => {
+          if (t.externalLink) imgs.push(t.externalLink);
+          else imgs.push(`${url}/o/r/${t.name}`);
+        });
+      }
+      text = content
+        .replace(/#(.*?)\s/g, "")
+        .replace(/\!?\[(.*?)\]\((.*?)\)/g, "")
+        .replace(/\{(.*?)\}/g, "");
+      content = text.replace(/\[(.*?)\]\((.*?)\)/g, `<a href="$2">@$1</a>`);
+      if (imgs) {
+        content += `<div class="zone_imgbox">`;
+        imgs.forEach(
+          (e) =>
+            (content += `<a href="${e}" data-fancybox="gallery" class="fancybox" data-thumb="${e}">
+              <img class="no-lazyload" src="${e}"></a>`)
+        );
+        content += "</div>";
+      }
+      return {
+        content: content,
+        date: date,
+        name: name, 
+        text: text.replace(
+          /\[(.*?)\]\((.*?)\)/g
+        ),
+      };
+    }
+    // 页面时间格式化
+    function getTime(time) {
+      let d = new Date(time),
+        ls = [
+          d.getFullYear(),
+          d.getMonth() + 1,
+          d.getDate(),
+          d.getHours(),
+          d.getMinutes(),
+          d.getSeconds(),
+        ];
+      for (let i = 0; i < ls.length; i++) {
+        ls[i] = ls[i] <= 9 ? "0" + ls[i] : ls[i] + "";
+      }
+      if (new Date().getFullYear() == ls[0])
+        return ls[1] + "月" + ls[2] + "日 " + ls[3] + ":" + ls[4];
+      else
+        return (
+          ls[0] + "年" + ls[1] + "月" + ls[2] + "日 " + ls[3] + ":" + ls[4]
+        );
+    }
+  }
+</script>

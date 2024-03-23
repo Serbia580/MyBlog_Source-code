@@ -1,0 +1,50 @@
+{{- $ThemeVersion := "3.22.0" -}}
+<footer class="site-footer">
+    <div class="organize">
+        <div class="box">
+            <a href="https://notbyai.fyi" target="_blank">
+                <div class="notbyai-badge" style="background-image: var(--notbyai-url); background-repeat: no-repeat; width: 131px; height: 42px;"></div>
+            </a>
+        </div>
+    </div>
+    <div class="footer-info">
+        <div>
+            <section class="copyright">
+                &copy; 
+                {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
+                    {{ .Site.Params.footer.since }} - 
+                {{ end }}
+                {{ now.Format "2006" }} {{ default .Site.Title .Site.Copyright }}
+            </section>
+            <section class="powerby">
+                Power By <strong><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></strong>,
+                Theme: <strong><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></strong> by 
+                <strong><a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a></strong>
+            </section>
+        </div>
+        <section class="ICP">
+            <a href="http://beian.miit.gov.cn/" target="_blank">冀ICP备2024058791号-1</a>
+        </section>
+        <section class="social">
+            {{- with .Site.Menus.social -}}
+                <ol class="social-menu">
+                    {{ range . }}
+                        <li>
+                            <a 
+                                href='{{ .URL }}'
+                                {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+                                {{ with .Name }}title="{{ . }}"{{ end }}
+                                rel="me"
+                            >
+                                {{ $icon := default "link" .Params.Icon }}
+                                {{ with $icon }}
+                                    {{ partial "helper/icon" . }}
+                                {{ end }}
+                            </a>
+                        </li>
+                    {{ end }}
+                </ol>
+            {{- end -}}
+        </section>
+    </div>
+</footer>

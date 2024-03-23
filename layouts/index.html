@@ -1,0 +1,109 @@
+{{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+    {{ $pag := .Paginate ($filtered) }}
+    <!-- 标签云 -->
+    {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "tags" -}}
+    {{- $terms := $taxonomy.Pages -}}
+    {{ if $terms }}
+    <div class="widget tagCloud">
+        <h2 class="section-title">
+            {{ $taxonomy.Title }}
+            <button id="toggleBtn">See All</button>
+        </h2>
+        
+        <div class="tagCloud-tags" id="tagCloud">
+            {{ if ne (len $.Site.Taxonomies.tags) 0 }}
+                {{ range $name, $taxonomy := $.Site.Taxonomies.tags }}
+                    {{ $tagCount := len $taxonomy.Pages }}
+                    <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tagCloud-tags">
+                        {{ $name }}<span class="tagCloud-count">{{ $tagCount }}</span>
+                    </a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var tagCloud = document.getElementById('tagCloud');
+            var toggleBtn = document.getElementById('toggleBtn');
+
+            // 初始状态为关闭
+            var isOpen = false;
+
+            // 点击按钮切换展开/关闭状态
+            toggleBtn.addEventListener('click', function() {
+                if (isOpen) {
+                // 关闭状态，折叠标签云
+                tagCloud.style.maxHeight = '50px'; // 设置最大高度
+                toggleBtn.textContent = 'See All'; // 修改按钮文本
+                } else {
+                // 展开状态，显示全部标签
+                tagCloud.style.maxHeight = 'min-content'; // 移除最大高度限制
+                toggleBtn.textContent = 'Close'; // 修改按钮文本
+                }
+                isOpen = !isOpen; // 切换状态
+            });
+            var checkTagCloudHeight = function() {
+            if (tagCloud.scrollHeight > tagCloud.clientHeight) {
+                toggleBtn.style.display = 'block';
+            } else {
+                toggleBtn.style.display = 'none';
+            }
+        };
+        
+        // 监听窗口大小变化以及内容加载完成事件，动态检查标签云高度
+        window.addEventListener('resize', checkTagCloudHeight);
+        window.addEventListener('load', checkTagCloudHeight);
+        });
+    </script>
+    <!-- 标签云 -->
+
+    <!-- 分类区域 -->
+    <div>
+        {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
+        {{- $terms := $taxonomy.Pages -}}
+        {{ if $terms }}
+        <h2 class="section-title">{{ $taxonomy.Title }}</h2>
+        <div class="subsection-list">
+            <div class="article-list--tile">
+                {{ range $terms }}
+                    {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    <!-- 分类区域 -->
+
+    <!-- 精选列表 -->
+    <div class="post-list">
+        <h2 class="section-title">featured</h2>
+        <section class="featured">
+            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" true | first 2 }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+        </section>
+    </div>
+    <!-- 精选列表 -->    
+
+    <!-- 文章列表 -->
+    <div class="post-list">
+        <h2 class="section-title">POST-LIST</h2>
+        <section class="article-list">
+            {{ range $index, $element := $pag.Pages }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+        </section>
+    </div>
+    <!-- 文章列表 -->
+    
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

@@ -1,0 +1,187 @@
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-self: stretch;
+    gap: var(--sidebar-element-separation);
+    width: 100%;
+    position: relative;
+    padding: 0px 0px;
+    --sidebar-avatar-size: 80px;
+    --sidebar-element-separation: 20px;
+    --emoji-size: 40px;
+    --emoji-font-size: 20px;
+    margin-bottom: 20px;
+    @include respond(md) {
+        padding: 20px 30px;
+        padding-top: var(--main-top-padding);
+        padding-bottom: var(--main-top-padding);
+        max-height: 100vh;
+        background-color:var(--left-sidebar-background);
+        box-shadow: var(--shadow-l4);
+        margin-bottom: 0;
+    }
+
+    @include respond(2xl) {
+        --sidebar-avatar-size: 100px;
+        --sidebar-element-separation: 25px;
+        --emoji-size: 40px;
+        background-color:var(--left-sidebar-background);
+        box-shadow: var(--shadow-l4);
+    }
+
+    &.sticky {
+        top: 0;
+    }
+
+    &.compact {
+        --sidebar-avatar-size: 80px;
+        --emoji-size: 30px;
+        --emoji-font-size: 15px;
+
+        header {
+            @include respond(lg) {
+                flex-direction: row;
+            }
+
+            .site-meta {
+                gap: 5px;
+            }
+
+            .site-name {
+                font-size: 1.4rem;
+
+                @include respond(2xl) {
+                    font-size: 1.75rem;
+                }
+            }
+
+            .site-description {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.right-sidebar {
+    height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: var(--widget-separation);
+    &.sticky {
+        top: 0;
+    }
+
+    @include respond(lg) {
+        padding-top: var(--main-top-padding);
+        padding-bottom: var(--main-top-padding);
+    }
+}
+
+.sidebar header {
+    z-index: 1;
+    transition: box-shadow 0.5s ease;
+    display: flex;
+    flex-direction: row;
+    gap: var(--sidebar-element-separation);
+    align-items: flex-end;
+    
+
+    @include respond(md) {
+        flex-direction: column;
+        padding: 0;
+        align-items:baseline;
+    }
+
+    .site-avatar {
+        position: relative;
+        margin: 0;
+        width: var(--sidebar-avatar-size);
+        height: var(--sidebar-avatar-size);
+        flex-shrink: 0;
+        vertical-align: bottom;
+
+        .site-logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            box-shadow: var(--shadow-l1);
+        }
+    }
+
+    .site-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .site-name {
+        color: var(--accent-color);
+        margin: 0;
+        font-size: 2.0rem;
+
+        @include respond(2xl) {
+            font-size: 2.0rem;
+        }
+    }
+    
+
+    .site-description {
+        color: var(--body-text-color);
+        font-weight: normal;
+        margin: 0;
+        font-size: 0.9em;
+
+        @include respond(2xl) {
+            font-size: 0.9em;
+        }
+    }
+}
+
+[data-scheme="dark"] {
+    #dark-mode-toggle {
+        color: var(--accent-color);
+        font-weight: 700;
+
+        .icon-tabler-toggle-left {
+            display: none;
+        }
+
+        .icon-tabler-toggle-right {
+            display: unset;
+        }
+    }
+}
+
+#dark-mode-toggle {
+    margin-top: auto;
+    color: var(--body-text-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--menu-icon-separation);
+
+    .icon-tabler-toggle-right {
+        display: none;
+    }
+}
+
+#i18n-switch {
+    color: var(--body-text-color);
+    display: inline-flex;
+    align-content: center;
+    gap: var(--menu-icon-separation);
+
+    select {
+        border: 0;
+        background-color: transparent;
+        color: var(--body-text-color);
+
+        option {
+            color: var(--card-text-color-main);
+            background-color: var(--card-background);
+        }
+    }
+}

@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+
+    .left-sidebar {
+        margin-right: 20px;
+        max-width: var(--left-sidebar-max-width);
+        &.sticky {
+            @include respond(md) {
+                position: sticky;
+            }
+        }
+    }
+
+    .right-sidebar {
+        margin-left: 20px;
+        max-width: var(--right-sidebar-max-width);
+        /// Display right sidebar when min-width: lg
+        
+        @include respond(lg) {
+            display: flex;
+        }
+        &.sticky {
+            @include respond(md) {
+                position: sticky;
+            }
+        }
+    }
+
+    &.extended {
+        @include respond(md) {
+            max-width: 1024px;
+            --left-sidebar-max-width: 25%;
+            --right-sidebar-max-width: 30%;
+        }
+
+        @include respond(lg) {
+            max-width: 1280px;
+            --left-sidebar-max-width: 20%;
+            --right-sidebar-max-width: 30%;
+        }
+
+        @include respond(xl) {
+            max-width: 100%;
+            --left-sidebar-max-width: 220px;
+            --right-sidebar-max-width: 300px;
+        }
+    }
+
+    &.compact {
+        @include respond(md) {
+            --left-sidebar-max-width: 25%;
+            max-width: 768px;
+        }
+
+        @include respond(lg) {
+            max-width: 1024px;
+            --left-sidebar-max-width: 20%;
+        }
+
+        @include respond(xl) {
+            max-width: 1280px;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+
+    &.column {
+        flex-direction: column;
+    }
+
+    &.on-phone--column {
+        flex-direction: column;
+        @include respond(md) {
+            flex-direction: unset;
+        }
+    }
+
+    .full-width {
+        width: 100%;
+    }
+}
+
+main.main {
+    margin: 0 auto;
+    min-width: 0;
+    width: 100%;
+    max-width: 1400px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-separation);
+    
+    @include respond(md) {
+        padding-top: var(--main-top-padding);
+    }
+}
+
+.main-container {
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 0 15px;
+    padding-top: var(--main-top-padding);
+    
+    @include respond(md) {
+        padding: 0;
+    }
+}

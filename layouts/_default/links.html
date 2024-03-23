@@ -1,0 +1,19 @@
+
+{{ define "main" }}
+
+    {{ if .Params.links }}
+        {{ partial "article/components/links" . }}
+    {{ end }}
+     
+    {{ if not (eq .Params.comments false) }}
+        {{ partial "comments/include" . }}
+    {{ end }}
+
+    {{ partialCached "footer/footer" . }}
+    <script>
+        var twikooElements = document.querySelectorAll('#twikoo');
+        twikooElements.forEach(function(element) {
+            element.style.maxWidth = 'none'; 
+        });
+    </script>
+{{ end }}
