@@ -3,3 +3,5 @@
 @Extras
 content/post
 public
+resources
+.gitignore
