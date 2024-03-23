@@ -8,7 +8,7 @@ content/post
 # 网站
 public
 resources
-assets/
+static
 
 # 忽略
 .gitignore
