@@ -1,6 +1,6 @@
 baseurl: https://www.morick66.com/
 languageCode: zh-cn
-theme: hugo-theme-gallery
+theme: 
 paginate: 9
 title: Morick莫里克
 copyright: Morick莫里克
