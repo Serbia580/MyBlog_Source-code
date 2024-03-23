@@ -27,7 +27,7 @@
       grid-template-columns: 1fr 1fr 1fr; //三个1fr即为三栏,两个1fr则为双栏,以此类推即可.
       background: none;
       box-shadow: none;
-      gap: 1rem;
+      gap: 10px;
   
       article {
         background: var(--card-background);
@@ -35,10 +35,6 @@
         box-shadow: var(--shadow-l2);
         margin-bottom: 8px;
         border-radius: var(--card-border-radius);
-  
-        &:nth-child(odd) {
-          margin-right: 8px;
-        }
       }
     }
   }
