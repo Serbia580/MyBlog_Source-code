@@ -1,4 +1,12 @@
 <section class="article-content">
+    {{ with .Params.description }}
+    <div class="abstract">
+        <p class="title">摘要</p>
+        <p class="article-description">
+            {{ . }}
+        </p>
+    </div>
+    {{ end }}
     <!-- Refer to https://discourse.gohugo.io/t/responsive-tables-in-markdown/10639/5 -->
     {{ $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" }}
     {{ .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}

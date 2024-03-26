@@ -82,7 +82,10 @@
     <div class="post-list">
         <h2 class="section-title">featured</h2>
         <section class="featured">
-            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" true | first 2 }}
+            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "1" }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "2" }}
                 {{ partial "article-list/default" . }}
             {{ end }}
         </section>
