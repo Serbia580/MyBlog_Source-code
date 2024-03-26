@@ -2,57 +2,150 @@
 {{ define "main" }}
 <div class="about">
     <div class="info">
-        <div class="card">
+        <div class="card name-card">
             <div class="name">
                 <h2>Morick</h2>
                 <p>莫里克</p>
             </div>
         </div>
         <div class="motto card">
-            <h1>页面装修中。。。。</h1>
+            <h3>座右铭</h3>
+            <div class="motto1">想做就做</div>
+            <div class="motto1">不想做就不做</div>
+            <div class="motto1">不得不做就做</div>
         </div>
     </div>
-    <div class="aboutMe card">
-        <span class="img">
-            <img src="/images/Me.png" alt="">
-        </span>
-        <span class="introduction">
-            <h3>关于我</h3>
-        </span>
-    </div>
-    <div class="interest">
-        <div class="interest-card card">
-            <h3>我的兴趣</h3>
-            <p>
-                <ul>
-                    <li>折腾属性爆炸</li>
-                    <li>沉迷朋克音乐</li>
-                    <li>软件工具爱好者</li>
-                    <li>都市传说真有趣</li>
-                </ul>
+    <!-- <div class="skill card">
+        <h3>技能树</h3>
+    </div> -->
+
+    <div class="Me">
+        <div class="aboutMe card">
+            <span class="img">
+                <img src="/images/Me.png" alt="">
+            </span>
+            <span class="introduction">
+                <h3>关于我</h3>
+                <div class="content">
+                    <p>生于2000年</p>
+                    <p>双非机械专业硕士生，但是并不热爱机械</p>
+                    <p>地下朋克乐队贝斯手</p>
+                    <p>即将步入社会，已经做好进厂的准备了</p>
+                    <p>......</p>
+                </div>
+            </span>
+        </div>
+        <div class="personalities card">
+            <p class="INTP">
+                <div class="title">
+                    <p>INTP-T</p>
+                    <p>逻辑学家</p>
+                </div>
+                <div class="img">
+                    <img src="/images/INTP.svg" alt="">
+                </div>
             </p>
         </div>
-        <div class="interest-img card">
-            <!-- <img src="{{ .Params.image }}" alt=""> -->
+    </div>
+    <div class="interest card">
+        <h3>我的兴趣</h3>
+        <div class="interest-content">
+            <span><strong style="color: #4298B4;">折腾</strong>属性爆炸</span>
+            <span>沉迷<strong style="color: #E4AE3A;">朋克</strong>音乐</span>
+            <span><strong style="color: #B04FE6;">软件&工具</strong>爱好者</span>
+            <span><strong style="color: #33A474;">都市传说</strong>真有趣</span>
+            <span>感觉自己<strong style="color: #F25E62;">爱读书</strong></span>
         </div>
     </div>
-    <div class="skill card">
-        <h3>无限进步！</h3>
-    </div>
-
     <div class="aboutSite">
         <div class="about-site card">
             <h3>关于本站</h3>
+            <div class="about-site-content">
+                <p>本站基于<a href="https://gohugo.io/" target="_blank"><strong>hugo</strong></a>搭建</p>
+                <p>使用的<a href="https://stack.jimmycai.com/" target="_blank"><strong>Stack</strong></a>主题并魔改</p>
+                <p>部署在阿里云服务器</p>
+                <p>本站大概率会分享我的一些折腾的记录。以及一些莫名其妙的碎碎念。</p>
+            </div>
         </div>
         <div class="statistic card">
             <h3>数据统计</h3>
+                <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/3Hs6RXBn6bsKkvZB/quote.js?theme=0&f=12&display=0,0,1,1,1,1,1,0"></script>
+                <div class="link"><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/3Hs6RXBn6bsKkvZB"><img src="https://sdk.51.la/icon/1-1.png"></a></div>
         </div>
     </div>
+    <p style="color: var(--card-text-color-secondary); margin: 0; font-size: 13px; text-align: right; margin-right: 10px;">
+    本页参考<a href="https://blog.zhheo.com/">张洪HEO</a>
+    </p>
 </div>
+{{ if not (eq .Params.comments false) }}
+{{ partial "comments/include" . }}
+{{ end }}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// 递归函数，用于删除所有子元素的内联样式并设置特定的 ID 和类
+function processChildren(element, parentId) {
+    var children = element.children;
+    for (var i = 0; i < children.length; i++) {
+        var child = children[i];
+        // 删除子元素的内联样式
+        child.removeAttribute("style");
+        // 设置特定的 ID
+        if (parentId !== null) {
+            switch (i) {
+                case 0:
+                    child.id = "todayVisitors";
+                    break;
+                case 1:
+                    child.id = "todayVisits";
+                    break;
+                case 2:
+                    child.id = "yesterdayVisitors";
+                    break;
+                case 3:
+                    child.id = "yesterdayVisits";
+                    break;
+                case 4:
+                    child.id = "thisMonthVisits";
+                    break;
+            }
+        }
+        if (child.children.length > 0) {
+            // 如果子元素还有子元素，则继续递归
+            processChildren(child, parentId);
+        } else {
+            // 如果子元素没有子元素，则设置类
+            switch (child.tagName.toLowerCase()) {
+                case 'span':
+                    if (i === 0) {
+                        child.classList.add('name');
+                    } else if (i === 1) {
+                        child.classList.add('number');
+                    }
+                    break;
+            }
+            // 移除三级子元素的ID
+            child.removeAttribute("id");
+        }
+    }
+}
 
-    {{ if not (eq .Params.comments false) }}
-        {{ partial "comments/include" . }}
-    {{ end }}
+// 获取所有类名为 "la-widget" 的元素
+var widgets = document.getElementsByClassName("la-widget");
+
+// 循环遍历这些元素
+for (var i = 0; i < widgets.length; i++) {
+    var widget = widgets[i];
+    // 删除当前元素的内联样式
+    widget.removeAttribute("style");
+    // 设置当前元素的唯一 ID
+    var uniqueId = i;
+    widget.id = uniqueId;
+    // 递归处理子元素
+    processChildren(widget, uniqueId);
+}
+
+});
+</script>
     {{ partialCached "footer/footer" . }}
 {{ end }}
 

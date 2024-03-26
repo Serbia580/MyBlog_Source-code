@@ -9,8 +9,6 @@
     padding: 0px 0px;
     --sidebar-avatar-size: 80px;
     --sidebar-element-separation: 20px;
-    --emoji-size: 40px;
-    --emoji-font-size: 20px;
     margin-bottom: 20px;
     @include respond(md) {
         padding: 20px 30px;
@@ -36,8 +34,6 @@
 
     &.compact {
         --sidebar-avatar-size: 80px;
-        --emoji-size: 30px;
-        --emoji-font-size: 15px;
 
         header {
             @include respond(lg) {
@@ -83,10 +79,8 @@
     z-index: 1;
     transition: box-shadow 0.5s ease;
     display: flex;
-    flex-direction: row;
-    gap: var(--sidebar-element-separation);
-    align-items: flex-end;
-    
+    flex-direction: column;
+    gap: var(--sidebar-element-separation);    
 
     @include respond(md) {
         flex-direction: column;
