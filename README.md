@@ -8,5 +8,5 @@
 
 ## 预览
 
-[Morick莫里克](https://www.morick66.com/)
+可以看我的[博客](https://www.morick66.com/)。
 
