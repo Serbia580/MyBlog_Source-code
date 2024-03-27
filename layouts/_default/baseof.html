@@ -12,10 +12,12 @@
             new LingQue.Monitor().init({id:"3Ht9P5CJ6OI0KrUx"});
         </script>
     </head>
+    <div id="overlay"></div>
+    {{ partial "sidebar/left.html" . }}
     <body class="{{ block `body-class` . }}{{ end }}">
         {{- partial "loading" . -}}
         {{- partial "head/colorScheme" . -}}
-
+        {{- partial "nav" . -}}
         {{/* The container is wider when there's any activated widget */}}
         {{- $hasWidget := false -}}
         {{- range .Site.Params.widgets -}}
@@ -24,14 +26,33 @@
             {{- end -}}
         {{- end -}}
         <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
-            {{- block "left-sidebar" . -}}
-                {{ partial "sidebar/left.html" . }}
-            {{- end -}}
             <main class="main full-width">
-                {{- block "main" . }}{{- end }}
-                {{ partial "footer/include.html" . }}
+                <div class="article-main">
+                    {{- block "main" . }}{{- end }}
+                    {{ partial "footer/include.html" . }}   
+                </div>
+                {{- block "right-sidebar" . -}}{{ end }}
             </main>
-            {{- block "right-sidebar" . -}}{{ end }}
         </div>
+        {{- partial "footer/footer" . -}}
     </body>
+    <script>
+    // 获取按钮和侧边栏
+    var toggleButton = document.getElementById('toggleButton');
+    var closeButton = document.getElementById('closeButton');
+    var sidebar = document.getElementById('left-sidebar');
+    var overlay = document.querySelector('.overlay');
+
+    // 点击按钮显示侧边栏
+    toggleButton.addEventListener('click', function() {
+        sidebar.style.left = '0';
+        overlay.style.display = 'block';
+    });
+
+    // 点击关闭按钮隐藏侧边栏
+    closeButton.addEventListener('click', function() {
+        sidebar.style.left = '-500px';
+        overlay.style.display = 'none';
+    });
+    </script>
 </html>

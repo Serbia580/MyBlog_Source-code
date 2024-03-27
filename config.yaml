@@ -72,7 +72,7 @@ params:
   widgets:
     homepage:
       - type: search
-      - type: memos
+      - type: info
       
     page:
       - type: toc

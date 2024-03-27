@@ -88,3 +88,18 @@
         }
     }
 }
+
+.info-widget {
+    width: 100%;
+    height: max-content;
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: 20px;
+    .site-avatar {
+        margin: 0 auto;
+        img {
+            width: 100px;
+        }
+    }
+}

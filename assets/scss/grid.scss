@@ -3,25 +3,20 @@
     margin-left: 0;
     margin-right: 0;
 
-    .left-sidebar {
-        margin-right: 20px;
-        max-width: var(--left-sidebar-max-width);
-        &.sticky {
-            @include respond(md) {
-                position: sticky;
-            }
-        }
-    }
-
     .right-sidebar {
         margin-left: 20px;
-        max-width: var(--right-sidebar-max-width);
         /// Display right sidebar when min-width: lg
-        
+        display: none;
+        height: 100vh;
+        width: 300px;
+        display: none;
+        flex-direction: column;
+        gap: var(--widget-separation);
         @include respond(lg) {
             display: flex;
         }
         &.sticky {
+            top: 0;
             @include respond(md) {
                 position: sticky;
             }
@@ -31,32 +26,16 @@
     &.extended {
         @include respond(md) {
             max-width: 1024px;
-            --left-sidebar-max-width: 25%;
-            --right-sidebar-max-width: 30%;
-        }
-
-        @include respond(lg) {
-            max-width: 1280px;
-            --left-sidebar-max-width: 20%;
-            --right-sidebar-max-width: 30%;
         }
 
         @include respond(xl) {
             max-width: 100%;
-            --left-sidebar-max-width: 220px;
-            --right-sidebar-max-width: 300px;
         }
     }
 
     &.compact {
         @include respond(md) {
-            --left-sidebar-max-width: 25%;
             max-width: 768px;
-        }
-
-        @include respond(lg) {
-            max-width: 1024px;
-            --left-sidebar-max-width: 20%;
         }
 
         @include respond(xl) {
@@ -86,17 +65,29 @@
 }
 
 main.main {
-    margin: 0 auto;
-    min-width: 0;
-    width: 100%;
-    max-width: 1080px;
-    flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    gap: var(--section-separation);
-    
-    @include respond(md) {
-        padding-top: var(--main-top-padding);
+    flex-direction: row;
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    .article-main {
+        min-width: 0;
+        width: 100%;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: var(--section-separation);
+        
+        @include respond(md) {
+            padding-top: var(--main-top-padding);
+        }
+        .site-main {
+            display: flex;
+            .post {
+                width: 100%;
+                flex: 1;
+            }
+        }
     }
 }
 
@@ -108,5 +99,33 @@ main.main {
     
     @include respond(md) {
         padding: 0;
+    }
+}
+
+[data-scheme="dark"] {
+    .dark-mode-toggle {
+        color: var(--accent-color);
+        font-weight: 700;
+
+        .icon-tabler-toggle-left {
+            display: none;
+        }
+
+        .icon-tabler-toggle-right {
+            display: unset;
+        }
+    }
+}
+
+.dark-mode-toggle {
+    margin-top: auto;
+    color: var(--body-text-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--menu-icon-separation);
+
+    .icon-tabler-toggle-right {
+        display: none;
     }
 }

@@ -1,0 +1,56 @@
+<nav class="" id="navbar">
+    <div class="nav-main">
+        <div class="title">
+            <a href="{{ .Site.BaseURL | relLangURL }}">Morick</a>
+        </div>
+        <div class="menu--commpect">
+            <ol class="menu" >
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
+                <li {{ if $active }} class='current' {{ end }}>
+                    <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>
+                        {{ $icon := default .Pre .Params.Icon }}
+                        {{ if .Pre }}
+                            {{ warnf "Menu item [%s] is using [pre] field to set icon, please use [params.icon] instead.\nMore information: https://docs.stack.jimmycai.com/configuration/custom-menu.html" .URL }}
+                        {{ end }}
+                        {{ with $icon }}
+                            {{ partial "helper/icon" . }}
+                        {{ end }}
+                        <span>{{- .Name -}}</span>
+                    </a>
+                </li>
+                {{ end }}
+            </ol>
+        </div>
+
+        {{ if (default false .Site.Params.colorScheme.toggle) }}
+            <div class="dark-mode-toggle" id="dark-mode-toggle">
+                {{ partial "helper/icon" "moon" }}
+                {{ partial "helper/icon" "sun" }}
+            </div>
+        {{ end }}
+
+        <button class="hamburger" type="button" id="toggleButton" aria-label="{{ T `toggleMenu` }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <title id="hamburgerIconTitle">Menu</title> <path d="M6 7L18 7M6 12L18 12M6 17L18 17"/> </svg>
+        </button>
+    </div>
+</nav>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+  
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+      if (scrollTop > lastScrollTop) {
+        // 向下滚动
+        navbar.classList.add('hidden');
+      } else {
+        // 向上滚动
+        navbar.classList.remove('hidden');
+      }
+      lastScrollTop = scrollTop;
+    });
+</script>

@@ -61,52 +61,52 @@
     </script>
     <!-- 标签云 -->
 
-    <!-- 分类区域 -->
-    <div>
-        {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
-        {{- $terms := $taxonomy.Pages -}}
-        {{ if $terms }}
-        <h2 class="section-title">{{ $taxonomy.Title }}</h2>
-        <div class="subsection-list">
-            <div class="article-list--tile">
-                {{ range $terms }}
-                    {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
-                {{ end }}
+<!-- 文章列表 -->
+<div class="site-main">
+    <div class="post">
+        <!-- 分类区域 -->
+        <div>
+            {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
+            {{- $terms := $taxonomy.Pages -}}
+            {{ if $terms }}
+            <h2 class="section-title">{{ $taxonomy.Title }}</h2>
+            <div class="subsection-list">
+                <div class="article-list--tile">
+                    {{ range $terms }}
+                        {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
+                    {{ end }}
+                </div>
             </div>
+            {{ end }}
         </div>
-        {{ end }}
-    </div>
-    <!-- 分类区域 -->
+        <!-- 分类区域 -->
+        <!-- 精选列表 -->
+        <div class="post-list">
+            <h2 class="section-title">featured</h2>
+            <section class="featured">
+                {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "1" }}
+                    {{ partial "article-list/default" . }}
+                {{ end }}
+                {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "2" }}
+                    {{ partial "article-list/default" . }}
+                {{ end }}
+            </section>
+        </div>
+        <!-- 精选列表 -->    
 
-    <!-- 精选列表 -->
-    <div class="post-list">
-        <h2 class="section-title">featured</h2>
-        <section class="featured">
-            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "1" }}
-                {{ partial "article-list/default" . }}
-            {{ end }}
-            {{ range where site.Pages.ByDate.Reverse "Params.featured" "=" "2" }}
-                {{ partial "article-list/default" . }}
-            {{ end }}
-        </section>
+        <!-- 文章列表 -->
+        <div class="post-list">
+            <h2 class="section-title">POST-LIST</h2>
+            <section class="article-list">
+                {{ range $index, $element := $pag.Pages }}
+                    {{ partial "article-list/default" . }}
+                {{ end }}
+            </section>
+        </div>
+        <!-- 文章列表 -->
     </div>
-    <!-- 精选列表 -->    
-
-    <!-- 文章列表 -->
-    <div class="post-list">
-        <h2 class="section-title">POST-LIST</h2>
-        <section class="article-list">
-            {{ range $index, $element := $pag.Pages }}
-                {{ partial "article-list/default" . }}
-            {{ end }}
-        </section>
-    </div>
-    <!-- 文章列表 -->
-    
+        {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+</div>
     {{- partial "pagination.html" . -}}
-    {{- partial "footer/footer" . -}}
 {{ end }}
 
-{{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
-{{ end }}
