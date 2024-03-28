@@ -9,7 +9,31 @@
   padding: 20px 0;
   transition: top 0.3s;
   z-index: 50;
-
+  
+  .search {
+    display: block;
+    @include respond(md) {
+      display: none;
+    }
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .hamburger {
+    padding: 0;
+    margin: 0;
+    color: var(--accent-color);
+    width: 40px;
+    height: 40px;
+    margin-top: -5px;
+    svg {
+      stroke: currentColor;
+      stroke-width: 1;
+      width: 40px;
+      height: 40px;
+    }
+  }
   .nav-main {
     display: flex;
     width: 1400px;
@@ -21,6 +45,12 @@
       line-height: 40px;
       font-weight: bold;
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      @include respond(md){
+        left: auto;
+        transform: none;
+      }
     }
     .menu--commpect {
       width: 100%;
@@ -50,12 +80,6 @@
       @include respond(xl) {
         gap: 30px;
       }
-    }
-
-    &.show {
-      display: flex;
-      border-radius: var(--card-border-radius);
-      margin: 0 10px;
     }
 
     @include respond(md) {
@@ -114,5 +138,42 @@
     @include respond(md) {
       display: none;
     }
+  }
+  .dark-mode-toggle {
+    display: none;
+    @include respond(md) {
+      display: block;
+    }
+  }
+}
+
+[data-scheme="dark"] {
+  .dark-mode-toggle {
+      color: var(--accent-color);
+      font-weight: 700;
+
+      .icon-tabler-toggle-left {
+          display: none;
+      }
+
+      .icon-tabler-toggle-right {
+          display: unset;
+      }
+  }
+}
+.dark-mode-toggle {
+  color: var(--body-text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--menu-icon-separation);
+  margin-left: 10px;
+
+  .icon-tabler-toggle-right {
+      display: none;
+  }
+  svg {
+    width: 30px;
+    height: 30px;
   }
 }

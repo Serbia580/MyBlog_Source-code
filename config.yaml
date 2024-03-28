@@ -73,6 +73,8 @@ params:
     homepage:
       - type: search
       - type: info
+      - type: notice
+      - type: memos
       
     page:
       - type: toc

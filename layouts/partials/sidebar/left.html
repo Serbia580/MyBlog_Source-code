@@ -26,7 +26,6 @@
             <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
             <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
         </div>
-        
     </header>
     <ol class="menu" id="main-menu">
         {{ $currentPage := . }}
@@ -62,6 +61,12 @@
             {{ end }}
         </div>
     </ol>
+    {{ if (default false .Site.Params.colorScheme.toggle) }}
+        <div class="dark-mode-toggle" id="dark-mode-toggle-1">
+            {{ partial "helper/icon" "moon" }}
+            {{ partial "helper/icon" "sun" }}
+        </div>
+    {{ end }}
 </aside>
 
 <div class="overlay" id="closeButton" style=""></div>

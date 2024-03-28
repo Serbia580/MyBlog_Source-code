@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="footer-info">
-        <div>
+        <div class="left-footer">
             <section class="copyright">
                 &copy; 
                 {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
@@ -16,35 +16,53 @@
                 {{ end }}
                 {{ now.Format "2006" }} {{ default .Site.Title .Site.Copyright }}
             </section>
-            <section class="powerby">
-                Power By <strong><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></strong>,
-                Theme: <strong><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></strong> by 
-                <strong><a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a></strong>
+            <section class="static">
+                {{$scratch := newScratch}}
+                {{ range (where .Site.Pages "Kind" "page" )}}
+                    {{$scratch.Add "total" .WordCount}}
+                {{ end }}
+                共创作{{ len (where .Site.RegularPages "Section" "post") }}篇文章，{{$scratch.Get "total" }}字
             </section>
         </div>
-        <section class="ICP">
-            <a href="http://beian.miit.gov.cn/" target="_blank">冀ICP备2024058791号-1</a>
-        </section>
-        <section class="social">
-            {{- with .Site.Menus.social -}}
-                <ol class="social-menu">
-                    {{ range . }}
-                        <li>
-                            <a 
-                                href='{{ .URL }}'
-                                {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
-                                {{ with .Name }}title="{{ . }}"{{ end }}
-                                rel="me"
-                            >
-                                {{ $icon := default "link" .Params.Icon }}
-                                {{ with $icon }}
-                                    {{ partial "helper/icon" . }}
-                                {{ end }}
-                            </a>
-                        </li>
-                    {{ end }}
-                </ol>
-            {{- end -}}
-        </section>
+        <div class="right-footer">
+            <section class="time">
+                本站已运行<SPAN id=span_dt_dt></SPAN>
+            </section>
+            <section class="link-info">
+                <span class="Hugo">
+                    <a href="https://www.morick66.com/index.xml" target="_blank">RSS</a>
+                </span>
+                <span class="RSS">
+                    <a href="https://gohugo.io/" target="_blank">Hugo</a>
+                </span>
+                <span class="theme">
+                    <a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank">主题</a>
+                </span>
+                <span class="ICP">
+                    <a href="http://beian.miit.gov.cn/" target="_blank" target="_blank">冀ICP备2024058791号-1</a>
+                </span>
+            </section>
+        </div>
     </div>
 </footer>
+
+<SCRIPT language=javascript>
+    function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("3/20/2024 00:00:00");//日期自己修改
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=Math.floor(e_hrsold);
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=Math.floor((e_hrsold-hrsold)*60);
+    seconds=Math.floor((e_minsold-minsold)*60);
+    span_dt_dt.innerHTML=""+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+    show_date_time();
+</SCRIPT>

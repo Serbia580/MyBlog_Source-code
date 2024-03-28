@@ -7,8 +7,10 @@
   width: 70%;
   display: block;
   transition: left 0.3s;
+  padding: 20px;
+  padding-left: 30px;
 
-  --sidebar-avatar-size: 100px;
+  --sidebar-avatar-size: 50px;
   --sidebar-element-separation: 20px;
   --emoji-size: 40px;
   --emoji-font-size: 20px;
@@ -20,6 +22,7 @@
     .site-avatar {
       position: relative;
       margin: 0;
+      margin-bottom: 10px;
       width: var(--sidebar-avatar-size);
       height: var(--sidebar-avatar-size);
       flex-shrink: 0;
@@ -53,7 +56,46 @@
       }
     }
   }
+  .dark-mode-toggle {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
 }
+
+  /* Menu style */
+  ol.menu {
+    list-style: none;
+    font-size: 2rem;
+    padding: 0;
+    padding-top: 30px;
+
+    li {
+      margin-bottom: 30px;
+      padding: 0;
+
+      svg {
+        stroke: currentColor;
+        stroke-width: 1.33;
+        width: 20px;
+        height: 20px;
+      }
+
+      a {
+        height: 100%;
+        display: inline-flex;
+        color: var(--body-text-color);
+        gap: 20px;
+      }
+
+      &.current {
+        a {
+          color: var(--accent-color);
+          font-weight: bold;
+        }
+      }
+    }
+  }
 
 .overlay {
   position: fixed;

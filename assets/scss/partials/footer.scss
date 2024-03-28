@@ -15,14 +15,19 @@ footer.site-footer {
     position: relative;
     bottom: 0;
     padding: 20px 10px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     line-height: 1.75;
+    color: var(--accent-color);
+    @include respond(md){
+        font-size: 1.6rem;
+    }
 
     .footer-info {
         display: block;
         @include respond(md) {
             display: grid;
-            grid-template-columns: 1fr 1fr auto;
+            grid-template-columns: 1fr auto;
         }
     }
     &:before {
@@ -33,17 +38,16 @@ footer.site-footer {
         background: var(--body-text-color);
         margin-bottom: 20px;
     }
-    .footer-info .copyright {
-        color: var(--accent-color);
-        font-weight: bold;
-    }
-
-    .footer-info .powerby {
-        color: var(--accent-color);
-        font-weight: normal;
-        font-size: 1.2rem;
-        a {
-            color: var(--accent-color);
+    .right-footer {
+        text-align: left;
+        @include respond(md) {
+            text-align: right;
+        }
+        span {
+            margin: 0 2px;
+            @include respond(md) {
+                margin: 0 10px;
+            }
         }
     }
     .organize {

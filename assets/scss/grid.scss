@@ -7,7 +7,7 @@
         margin-left: 20px;
         /// Display right sidebar when min-width: lg
         display: none;
-        height: 100vh;
+        height: 100%;
         width: 300px;
         display: none;
         flex-direction: column;
@@ -99,33 +99,5 @@ main.main {
     
     @include respond(md) {
         padding: 0;
-    }
-}
-
-[data-scheme="dark"] {
-    .dark-mode-toggle {
-        color: var(--accent-color);
-        font-weight: 700;
-
-        .icon-tabler-toggle-left {
-            display: none;
-        }
-
-        .icon-tabler-toggle-right {
-            display: unset;
-        }
-    }
-}
-
-.dark-mode-toggle {
-    margin-top: auto;
-    color: var(--body-text-color);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: var(--menu-icon-separation);
-
-    .icon-tabler-toggle-right {
-        display: none;
     }
 }
