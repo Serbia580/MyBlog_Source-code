@@ -12,11 +12,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   全局风格
 */
 :root {
-    --main-top-padding: 80px;
-
-    @include respond(xl) {
-        --main-top-padding: 80px;
-    }
+    --main-top-padding: 90px;
 
     --body-background: #F2F2F2;
 

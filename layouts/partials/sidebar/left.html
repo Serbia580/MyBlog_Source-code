@@ -63,22 +63,6 @@
             </a>
         </li>
         {{ end }}
-
-        <div class="menu-bottom-section">
-            {{- $currentLanguageCode := .Language.Lang -}}
-            {{ if ( compare.Gt .Site.Home.AllTranslations 1 ) }}
-                {{ with .Site.Home.AllTranslations }}
-                    <li id="i18n-switch">  
-                        {{ partial "helper/icon" "language" }}
-                        <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                            {{ range . }}
-                                <option value="{{ .Permalink }}" {{ if eq .Language.Lang $currentLanguageCode }}selected{{ end }}>{{ .Language.LanguageName }}</option>
-                            {{ end }}
-                        </select>
-                    </li>
-                {{ end }}
-            {{ end }}
-        </div>
     </ol>
     {{ if (default false .Site.Params.colorScheme.toggle) }}
         <div class="dark-mode-toggle" id="dark-mode-toggle-1">

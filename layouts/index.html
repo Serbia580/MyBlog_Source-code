@@ -17,8 +17,8 @@
             {{ if ne (len $.Site.Taxonomies.tags) 0 }}
                 {{ range $name, $taxonomy := $.Site.Taxonomies.tags }}
                     {{ $tagCount := len $taxonomy.Pages }}
-                    <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tagCloud-tags">
-                        {{ $name }}<span class="tagCloud-count">{{ $tagCount }}</span>
+                    <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}" class="tagCloud-tag">
+                       <span class="symbol">#</span> {{ $name }}<span class="tagCloud-count">{{ $tagCount }}</span>
                     </a>
                 {{ end }}
             {{ end }}
@@ -37,7 +37,7 @@
             toggleBtn.addEventListener('click', function() {
                 if (isOpen) {
                 // 关闭状态，折叠标签云
-                tagCloud.style.maxHeight = '50px'; // 设置最大高度
+                tagCloud.style.maxHeight = '47px'; // 设置最大高度
                 toggleBtn.textContent = 'See All'; // 修改按钮文本
                 } else {
                 // 展开状态，显示全部标签

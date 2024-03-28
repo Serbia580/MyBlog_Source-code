@@ -1,14 +1,6 @@
 .widget {
   display: flex;
   flex-direction: column;
-  .widget-icon {
-    svg {
-      width: 32px;
-      height: 32px;
-      stroke-width: 1.6;
-      color: var(--body-text-color);
-    }
-  }
 }
 
 // 标签云
@@ -20,13 +12,17 @@
     border-radius: 50%;
     color: var(--body-text-color);
   }
+  .symbol {
+    color: var(--card-text-color-secondary);
+  }
 
   .tagCloud-tags {
     display: inline-block;
-    margin: 3px 5px 0 5px;
-    max-height: 50px;
+    max-height: 47px;
     overflow: hidden;
-    a {
+    .tagCloud-tag {
+      display: inline-block;
+      margin: 3px 10px 0 0;
       background: var(--card-background);
       box-shadow: var(--shadow-l1);
       border-radius: var(--tag-border-radius);
@@ -39,11 +35,8 @@
       }
     }
   }
-  .tagCloud-tag {
-    display: block;
-    margin-bottom: 5px;
-    text-align: center;
-  }
+
+
   button {
     color: var(--body-text-color);
     font-size: 15px;
@@ -90,7 +83,7 @@
   }
   .link {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 15px;
     a {
       display: flex;
@@ -108,10 +101,15 @@
       width: 30px;
       height: 30px;
     }
+    display: none;
   }
   .link > a:hover {
     background-color: #ffffffd5;
   }
+}
+
+.info-widget:hover .link {
+  display: block;
 }
 
 .notice {

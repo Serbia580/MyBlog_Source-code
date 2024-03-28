@@ -21,7 +21,7 @@
                 {{ range (where .Site.Pages "Kind" "page" )}}
                     {{$scratch.Add "total" .WordCount}}
                 {{ end }}
-                共创作{{ len (where .Site.RegularPages "Section" "post") }}篇文章，{{$scratch.Get "total" }}字
+                共创作了{{ len (where .Site.RegularPages "Section" "post") }}篇文章，{{$scratch.Get "total" }}字
             </section>
         </div>
         <div class="right-footer">
