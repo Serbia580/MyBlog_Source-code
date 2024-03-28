@@ -26,6 +26,25 @@
                 {{ end }}
             </ol>
         </div>
+        {{- with .Site.Menus.social -}}
+            <ol class="menu-social">
+                {{ range . }}
+                    <li>
+                        <a 
+                            href='{{ .URL }}'
+                            {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+                            {{ with .Name }}title="{{ . }}"{{ end }}
+                            rel="me"
+                        >
+                            {{ $icon := default "link" .Params.Icon }}
+                            {{ with $icon }}
+                                {{ partial "helper/icon" . }}
+                            {{ end }}
+                        </a>
+                    </li>
+                {{ end }}
+            </ol>
+        {{- end -}}
         <div class="search">
             <a href="https://www.morick66.com/search">
                 {{ partial "helper/icon" "search" }}

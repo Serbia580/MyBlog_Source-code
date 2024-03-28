@@ -9,10 +9,9 @@
         display: none;
         height: 100%;
         width: 300px;
-        display: none;
         flex-direction: column;
         gap: var(--widget-separation);
-        @include respond(lg) {
+        @include respond(xl) {
             display: flex;
         }
         &.sticky {

@@ -129,7 +129,24 @@
       width: 100%;
     }
   }
-  
+  .menu-social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    gap: 10px;
+
+    svg {
+        width: 30px;
+        height: 30px;
+        stroke: var(--body-text-color);
+        stroke-width: 1.33;
+    }
+    display: none;
+    @include respond(md) {
+      display: flex;
+    }
+  }
   #toggleButton {
     display: block;
     border: 0;

@@ -281,7 +281,7 @@
 // 精选
 .featured {
     margin-bottom: 20px;
-    @include respond(2xl) {
+    @include respond(md) {
         display: grid;
         grid-template-columns: 2fr 1fr;
     }

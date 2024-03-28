@@ -95,17 +95,8 @@
   }
 }
 
-// 精选列表
-
-@include respond(2xl) {
-  section.featured-list{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 // 文章列表分列
-@include respond(2xl) {
+@include respond(md) {
   section.article-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
