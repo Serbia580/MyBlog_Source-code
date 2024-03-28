@@ -25,7 +25,7 @@
                 {{- $hasWidget = true -}}
             {{- end -}}
         {{- end -}}
-        <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
+        <div class="container main-container flex on-phone--column">
             <main class="main full-width">
                 <div class="article-main">
                     {{- block "main" . }}{{- end }}
