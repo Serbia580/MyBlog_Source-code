@@ -103,11 +103,11 @@
                 {{ end }}
             </section>
         </div>
+        {{- partial "pagination.html" . -}}
         <!-- 文章列表 -->
 
     </div>
         {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 </div>
-    {{- partial "pagination.html" . -}}
 {{ end }}
 
