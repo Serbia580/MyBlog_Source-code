@@ -118,6 +118,13 @@
     flex-direction: column;
     color: var(--card-text-color-main);
     overflow: hidden;
+    margin-top: 90px;
+    
+    h2 {
+        margin: 20px 0 0 20px;
+        font-size: 15px;
+        color: var(--card-text-color-main);
+    }
 
     ::-webkit-scrollbar-thumb {
         background-color: var(--card-separator-color);

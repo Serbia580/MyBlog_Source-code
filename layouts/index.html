@@ -7,7 +7,7 @@
     {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "tags" -}}
     {{- $terms := $taxonomy.Pages -}}
     {{ if $terms }}
-    <div class="widget tagCloud">
+    <div class="tagCloud">
         <h2 class="section-title">
             {{ $taxonomy.Title }}
             <button id="toggleBtn">See All</button>

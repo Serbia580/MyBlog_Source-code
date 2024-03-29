@@ -56,7 +56,7 @@
   position: relative;
   width: 100%;
   height: max-content;
-  background-image: linear-gradient(135deg, #3c8ce7 10%, #00eaff 100%);
+  background-image: linear-gradient(0deg, #3c8ce7 10%, #00eaff 100%);
   border-radius: var(--card-border-radius);
   box-shadow: var(--shadow-l1);
   padding: var(--card-padding);
@@ -106,6 +106,39 @@
   .link > a:hover {
     background-color: #ffffffd5;
   }
+  .social {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    span {
+      display: inline-block;
+      a {
+        display: block;
+        background-color: #ffffff6e;
+        border-radius: 100%;
+        .svg {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          svg {
+            width: 25px;
+            height: 25px;
+            stroke: #ffffff;
+            stroke-width: 1.2;
+          }
+        }
+      }
+      &:hover {
+        a {
+          background-color: #fff;
+          svg {
+            stroke: #3c8ce7;
+          }
+        }
+      }
+    }
+  }
 }
 
 .info-widget:hover .link {
@@ -154,7 +187,7 @@ div.memos {
     margin-top: 2rem;
     overflow: auto;
     scrollbar-width: none;
-    height: 500px;
+    height: 600px;
 }
 
 .memos_item {

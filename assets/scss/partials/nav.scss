@@ -56,93 +56,68 @@
     .menu--commpect {
       width: 100%;
     }
+    @include respond(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
   
   &.hidden {
     top: -70px !important;
   }
-  /* Menu style */
-  ol.menu {
-    display: none;
-    list-style: none;
-    flex-direction: row;
-    flex-grow: 1;
-    font-size: 2rem;
-    background-color: var(--card-background);
-    box-shadow: var(--shadow-l1);
-    margin: 0 calc(var(--container-padding) * -1);
+  .menu--commpect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    & {
-      gap: 10px;
-      @include respond(md) {
-        gap: 30px;
-      }
-    }
-
-    @include respond(md) {
-      display: flex;
-      justify-content: center;
-      background-color: transparent;
-      padding: 0;
-      box-shadow: none;
-    }
-
-    li {
-      position: relative;
-      vertical-align: middle;
-      padding: 5px 10px;
+    ol.menu {
+      position: absolute;
+      display: none;
+      list-style: none;
+      flex-direction: row;
+      flex-grow: 1;
+      font-size: 2rem;
+      background-color: var(--card-background);
+      box-shadow: var(--shadow-l1);
+      margin: 0;
+      gap: 20px;
 
       @include respond(md) {
-        width: max-content;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
       }
-
-      svg {
-        stroke: currentColor;
-        stroke-width: 1.33;
-        width: 20px;
-        height: 20px;
-      }
-
-      a {
-        height: 100%;
-        display: inline-flex;
-        align-items: center;
-        color: var(--body-text-color);
-        gap: var(--menu-icon-separation);
-      }
-
-      &.current {
+  
+      li {
+        position: relative;
+        vertical-align: middle;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        border-radius: var(--card-border-radius);
         a {
-          color: var(--accent-color);
-          font-weight: bold;
+          display: inline-flex;
+          align-items: center;
+          color: var(--body-text-color);
+          gap: var(--menu-icon-separation);
+        }
+  
+        &.current {
+          a {
+            color: var(--accent-color);
+            font-weight: bold;
+          }
+        }
+  
+        &:hover {
+          background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
+          a {
+            color: aliceblue;
+            font-weight: bold;
+          }
         }
       }
-    }
-    :hover {
-      box-sizing: border-box;
-      border-radius: 15px;
-      background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
-      a {
-        color: aliceblue;
-      }
-    }
-  }
-  .menu-social {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-direction: row;
-    gap: 10px;
-
-    svg {
-        width: 30px;
-        height: 30px;
-        stroke: var(--body-text-color);
-        stroke-width: 1.33;
-    }
-    display: none;
-    @include respond(md) {
-      display: flex;
     }
   }
   #toggleButton {
@@ -158,6 +133,7 @@
     display: none;
     @include respond(md) {
       display: block;
+      text-align: right;
     }
   }
 }

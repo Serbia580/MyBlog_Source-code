@@ -116,7 +116,7 @@ menu:
       name: GitHub
       url: https://github.com/Morick66
       params:
-        icon: brand-github
+        icon: github
     - identifier: email
       name: email
       url: mailto:morick655@163.com

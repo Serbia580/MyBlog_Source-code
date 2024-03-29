@@ -64,10 +64,10 @@
       gap: 10px;
 
       svg {
-          width: 24px;
-          height: 24px;
-          stroke: var(--body-text-color);
-          stroke-width: 1.33;
+        width: 24px;
+        height: 24px;
+        stroke: var(--body-text-color);
+        stroke-width: 1.33;
       }
     }
   }
@@ -76,8 +76,6 @@
     bottom: 20px;
     left: 20px;
   }
-}
-
   /* Menu style */
   ol.menu {
     list-style: none;
@@ -111,6 +109,7 @@
       }
     }
   }
+}
 
 .overlay {
   position: fixed;
