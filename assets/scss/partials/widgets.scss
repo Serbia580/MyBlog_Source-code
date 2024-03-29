@@ -3,55 +3,6 @@
   flex-direction: column;
 }
 
-// 标签云
-.tagCloud {
-  vertical-align: middle;
-  .tagCloud-count {
-    margin: 5px;
-    font-size: 0.8em;
-    border-radius: 50%;
-    color: var(--body-text-color);
-  }
-  .symbol {
-    color: var(--card-text-color-secondary);
-  }
-
-  .tagCloud-tags {
-    display: inline-block;
-    max-height: 47px;
-    overflow: hidden;
-    .tagCloud-tag {
-      display: inline-block;
-      margin: 3px 10px 0 0;
-      background: var(--card-background);
-      box-shadow: var(--shadow-l1);
-      border-radius: var(--tag-border-radius);
-      padding: 10px 15px;
-      color: var(--card-text-color-main);
-      font-size: 2rem;
-
-      &:hover {
-        box-shadow: var(--shadow-l2);
-      }
-    }
-  }
-
-
-  button {
-    color: var(--body-text-color);
-    font-size: 15px;
-    float: right;
-    border: none;
-    background: none;
-    padding: 0 5px 0 0;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  #showMoreBtn {
-    display: none; /* 初始状态隐藏按钮 */
-  }
-}
-
 .info-widget {
   position: relative;
   width: 100%;
@@ -159,6 +110,36 @@
   }
   p {
     color: var(--card-text-color-main);
+  }
+  &:hover {
+    .shake {
+      display: inline-block;
+      animation: shake 0.5s;
+      animation-duration: 0.5s;
+      animation-timing-function: ease;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      animation-play-state: running;
+      @keyframes shake {
+        0% {
+          transform: rotate(0);
+        }
+        25% {
+          transform: rotate(45deg) scale(1.2);
+        }
+        50% {
+          transform: rotate(0) scale(1.2);
+        }
+        75% {
+          transform: rotate(45deg) scale(1.2);
+        }
+        100% {
+          transform: rotate(0);
+        }
+      }
+    }
   }
 }
 

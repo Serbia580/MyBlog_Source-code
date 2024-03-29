@@ -1,81 +1,127 @@
 .container {
-    display: flex;
-    margin-left: 0;
-    margin-right: 0;
-
-    .right-sidebar {
-        margin-left: 20px;
-        display: none;
-        height: 100%;
-        width: 300px;
-        flex-direction: column;
-        gap: var(--widget-separation);
-        @include respond(xl) {
-            display: flex;
-        }
-        &.sticky {
-            top: 0;
-            @include respond(md) {
-                position: sticky;
-            }
-        }
-    }
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .flex {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    &.column {
-        flex-direction: column;
-    }
+  &.column {
+    flex-direction: column;
+  }
 
-    &.on-phone--column {
-        flex-direction: column;
-        @include respond(md) {
-            flex-direction: unset;
-        }
+  &.on-phone--column {
+    flex-direction: column;
+    @include respond(md) {
+      flex-direction: unset;
     }
+  }
 
-    .full-width {
-        width: 100%;
-    }
+  .full-width {
+    width: 100%;
+  }
 }
 
 main.main {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: var(--main-container-width);
+  margin: 0 auto;
+  .article-main {
+    min-width: 0;
     width: 100%;
-    max-width: 1380px;
-    margin: 0 auto;
-    .article-main {
-        min-width: 0;
-        width: 100%;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        gap: var(--section-separation);
-        
-        @include respond(md) {
-            padding-top: var(--main-top-padding);
-        }
-        .site-main {
-            display: flex;
-            .post {
-                width: 100%;
-                flex: 1;
-            }
-        }
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--section-separation);
+
+    @include respond(md) {
+      padding-top: var(--main-top-padding);
     }
+
+    // 标签云
+    .tagCloud {
+      vertical-align: middle;
+      .tagCloud-count {
+        margin: 5px;
+        font-size: 0.8em;
+        border-radius: 50%;
+        color: var(--body-text-color);
+      }
+      .symbol {
+        color: var(--card-text-color-secondary);
+      }
+
+      .tagCloud-tags {
+        display: inline-block;
+        max-height: 47px;
+        overflow: hidden;
+        .tagCloud-tag {
+          display: inline-block;
+          margin: 3px 10px 0 0;
+          background: var(--card-background);
+          box-shadow: var(--shadow-l1);
+          border-radius: var(--tag-border-radius);
+          padding: 10px 15px;
+          color: var(--card-text-color-main);
+          font-size: 2rem;
+
+          &:hover {
+            box-shadow: var(--shadow-l2);
+          }
+        }
+      }
+
+      button {
+        color: var(--body-text-color);
+        font-size: 15px;
+        float: right;
+        border: none;
+        background: none;
+        padding: 0 5px 0 0;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      #showMoreBtn {
+        display: none; /* 初始状态隐藏按钮 */
+      }
+    }
+    .site-main {
+      display: flex;
+      .post {
+        width: 100%;
+        max-width: calc(var(--main-container-width) - 280px);
+      }
+      .right-sidebar {
+        margin-left: 20px;
+        display: none;
+        height: 100%;
+        flex-direction: column;
+        gap: var(--widget-separation);
+        @include respond(lg) {
+          display: flex;
+        }
+        &.sticky {
+          top: 0;
+          @include respond(md) {
+            position: sticky;
+          }
+        }
+      }
+    }
+  }
 }
 
 .main-container {
-    min-height: 100vh;
-    align-items: flex-start;
-    padding: 0 15px;
-    padding-top: var(--main-top-padding);
-    
-    @include respond(md) {
-        padding: 0;
-    }
+  min-height: 100vh;
+  align-items: flex-start;
+  padding: 0 15px;
+  padding-top: var(--main-top-padding);
+
+  @include respond(md) {
+    padding: 0;
+  }
 }

@@ -295,8 +295,4 @@
     @include respond(md) {
         height: 250px;
     }
-  
-    @include respond(xl) {
-        height: 300px;
-    }
-  }
+}

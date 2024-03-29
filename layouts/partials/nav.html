@@ -3,10 +3,10 @@
         {{ partial "helper/icon" "hamburger" }}
     </div>
     <div class="nav-main">
-        <div class="title">
+        <div class="title nav-left">
             <a href="{{ .Site.BaseURL | relLangURL }}">Morick</a>
         </div>
-        <div class="menu--commpect">
+        <div class="menu--commpect nav-center">
             <ol class="menu" >
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}

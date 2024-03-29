@@ -10,35 +10,16 @@
   transition: top 0.3s;
   z-index: 50;
   
-  .search {
-    display: block;
-    @include respond(md) {
-      display: none;
-    }
-    svg {
-      width: 30px;
-      height: 30px;
-    }
-  }
-  .hamburger {
-    padding: 0;
-    margin: 0;
-    color: var(--accent-color);
-    width: 40px;
-    height: 40px;
-    margin-top: -5px;
-    svg {
-      stroke: currentColor;
-      stroke-width: 1;
-      width: 40px;
-      height: 40px;
-    }
-  }
+
   .nav-main {
     display: flex;
-    width: 1400px;
+    width: calc(var(--main-container-width) + 20px);
     padding: 0 10px;
     margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
     .title {
       font-family: "Virgil";
       font-size: 40px;
@@ -46,80 +27,77 @@
       font-weight: bold;
       position: absolute;
       left: 50%;
+      width: max-content;
       transform: translateX(-50%);
       @include respond(md){
-        position: relative;
-        left: auto;
+        left: 10px;
         transform: none;
       }
     }
     .menu--commpect {
-      width: 100%;
-    }
-    @include respond(md) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
+      display: flex;
+      align-items: center;
+      flex: 1;
+      text-align: center;
   
-  &.hidden {
-    top: -70px !important;
-  }
-  .menu--commpect {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    ol.menu {
+      ol.menu {
+        display: none;
+        list-style: none;
+        flex-direction: row;
+        flex-grow: 1;
+        font-size: 2.0rem;
+        line-height: 30px;
+        background-color: var(--card-background);
+        box-shadow: var(--shadow-l1);
+        margin: 0;
+        gap: 20px;
+        font-weight: bold;
+  
+        @include respond(md) {
+          display: flex;
+          justify-content: center;
+          background-color: transparent;
+          padding: 0;
+          box-shadow: none;
+        }
+    
+        li {
+          position: relative;
+          vertical-align: middle;
+          padding: 10px 15px;
+          box-sizing: border-box;
+          border-radius: var(--card-border-radius);
+          a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--body-text-color);
+            gap: var(--menu-icon-separation);
+          }
+    
+          &.current {
+            a {
+              color: var(--accent-color);
+              font-weight: bold;
+            }
+          }
+    
+          &:hover {
+            background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
+            a {
+              color: aliceblue;
+            }
+          }
+        }
+      }
+    }
+    .nav-right {
+      flex: 0 0 auto;
       position: absolute;
-      display: none;
-      list-style: none;
-      flex-direction: row;
-      flex-grow: 1;
-      font-size: 2rem;
-      background-color: var(--card-background);
-      box-shadow: var(--shadow-l1);
-      margin: 0;
-      gap: 20px;
-
-      @include respond(md) {
-        display: flex;
-        justify-content: center;
-        background-color: transparent;
-        padding: 0;
-        box-shadow: none;
-      }
-  
-      li {
-        position: relative;
-        vertical-align: middle;
-        padding: 10px 15px;
-        box-sizing: border-box;
-        border-radius: var(--card-border-radius);
-        a {
-          display: inline-flex;
-          align-items: center;
-          color: var(--body-text-color);
-          gap: var(--menu-icon-separation);
-        }
-  
-        &.current {
-          a {
-            color: var(--accent-color);
-            font-weight: bold;
-          }
-        }
-  
-        &:hover {
-          background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
-          a {
-            color: aliceblue;
-            font-weight: bold;
-          }
-        }
-      }
+      right: 10px;
     }
   }
+  
+
   #toggleButton {
     display: block;
     border: 0;
@@ -134,6 +112,34 @@
     @include respond(md) {
       display: block;
       text-align: right;
+    }
+  }
+
+  // 手机界面元素
+  .hamburger {
+    padding: 0;
+    margin: 0;
+    color: var(--accent-color);
+    width: 40px;
+    height: 40px;
+    margin-top: -5px;
+    position: absolute;
+    left: 10px;
+    svg {
+      stroke: currentColor;
+      stroke-width: 1;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .search {
+    display: block;
+    @include respond(md) {
+      display: none;
+    }
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 }
@@ -166,5 +172,9 @@
   svg {
     width: 30px;
     height: 30px;
+  }
+  // 滚动隐藏
+  &.hidden {
+    top: -70px !important;
   }
 }
