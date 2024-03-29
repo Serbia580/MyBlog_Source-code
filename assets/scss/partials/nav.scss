@@ -9,7 +9,10 @@
   padding: 20px 0;
   transition: top 0.3s;
   z-index: 50;
-  
+  // 滚动隐藏
+  &.hidden {
+    top: -80px;
+  }
 
   .nav-main {
     display: flex;
@@ -172,9 +175,5 @@
   svg {
     width: 30px;
     height: 30px;
-  }
-  // 滚动隐藏
-  &.hidden {
-    top: -70px !important;
   }
 }
