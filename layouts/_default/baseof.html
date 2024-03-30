@@ -12,8 +12,6 @@
             new LingQue.Monitor().init({id:"3Ht9P5CJ6OI0KrUx"});
         </script>
     </head>
-    <div id="overlay"></div>
-    {{ partial "sidebar/left.html" . }}
     <body class="{{ block `body-class` . }}{{ end }}">
         {{- partial "loading" . -}}
         {{- partial "head/colorScheme" . -}}
@@ -25,6 +23,8 @@
                 {{- $hasWidget = true -}}
             {{- end -}}
         {{- end -}}
+        <div id="overlay"></div>
+        {{ partial "sidebar/left.html" . }}
         <div class="container main-container flex on-phone--column">
             <main class="main article-grid">
                 <div class="article-main">
