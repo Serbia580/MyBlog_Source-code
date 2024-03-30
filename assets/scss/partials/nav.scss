@@ -32,7 +32,7 @@
       left: 50%;
       width: max-content;
       transform: translateX(-50%);
-      @include respond(md){
+      @include respond(md) {
         left: 10px;
         transform: none;
       }
@@ -42,20 +42,20 @@
       align-items: center;
       flex: 1;
       text-align: center;
-  
+
       ol.menu {
         display: none;
         list-style: none;
         flex-direction: row;
         flex-grow: 1;
-        font-size: 2.0rem;
+        font-size: 2rem;
         line-height: 30px;
         background-color: var(--card-background);
         box-shadow: var(--shadow-l1);
         margin: 0;
         gap: 20px;
         font-weight: bold;
-  
+
         @include respond(md) {
           display: flex;
           justify-content: center;
@@ -63,7 +63,7 @@
           padding: 0;
           box-shadow: none;
         }
-    
+
         li {
           position: relative;
           vertical-align: middle;
@@ -76,16 +76,20 @@
             color: var(--body-text-color);
             gap: var(--menu-icon-separation);
           }
-    
+
           &.current {
             a {
               color: var(--accent-color);
               font-weight: bold;
             }
           }
-    
+
           &:hover {
-            background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
+            background-image: linear-gradient(
+              135deg,
+              #3c8ce7 10%,
+              #00eaff 100%
+            );
             a {
               color: aliceblue;
             }
@@ -99,9 +103,36 @@
       right: 10px;
     }
   }
-  
 
+  .dark-mode-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: var(--card-border-radius);
+    @include respond(md) {
+      display: block;
+      text-align: right;
+    }
+    &:hover {
+      background-image: linear-gradient(
+        135deg,
+        #3c8ce7 10%,
+        #00eaff 100%
+      );
+      svg {
+        color: aliceblue;
+      }
+    }
+  }
+
+  // 手机界面元素
+
+  // 菜单按钮
   #toggleButton {
+    position: absolute;
+    left: 10px;
+    z-index: 100;
     display: block;
     border: 0;
     background-color: transparent;
@@ -109,25 +140,12 @@
     @include respond(md) {
       display: none;
     }
-  }
-  .dark-mode-toggle {
-    display: none;
-    @include respond(md) {
-      display: block;
-      text-align: right;
-    }
-  }
-
-  // 手机界面元素
-  .hamburger {
     padding: 0;
     margin: 0;
     color: var(--accent-color);
     width: 40px;
     height: 40px;
     margin-top: -5px;
-    position: absolute;
-    left: 10px;
     svg {
       stroke: currentColor;
       stroke-width: 1;
@@ -149,18 +167,19 @@
 
 [data-scheme="dark"] {
   .dark-mode-toggle {
-      color: var(--accent-color);
-      font-weight: 700;
+    color: var(--accent-color);
+    font-weight: 700;
 
-      .icon-tabler-toggle-left {
-          display: none;
-      }
+    .icon-tabler-toggle-left {
+      display: none;
+    }
 
-      .icon-tabler-toggle-right {
-          display: unset;
-      }
+    .icon-tabler-toggle-right {
+      display: unset;
+    }
   }
 }
+// 暗色按钮
 .dark-mode-toggle {
   color: var(--body-text-color);
   display: flex;
@@ -170,7 +189,7 @@
   margin-left: 10px;
 
   .icon-tabler-toggle-right {
-      display: none;
+    display: none;
   }
   svg {
     width: 30px;

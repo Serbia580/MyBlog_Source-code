@@ -102,7 +102,7 @@ main.main {
   padding-top: var(--main-top-padding);
 
   @include respond(md) {
-    padding: 0;
+    padding: 0 15px;
   }
 }
 
@@ -110,11 +110,13 @@ main.main {
   margin-left: 20px;
   display: none;
   height: 100%;
-  width: 260px;
+
   flex-direction: column;
   gap: var(--widget-separation);
   @include respond(lg) {
     display: flex;
+    min-width: 260px;
+    max-width: 260px;
   }
   &.sticky {
     top: 0;

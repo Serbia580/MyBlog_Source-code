@@ -73,8 +73,8 @@
           align-items: center;
           padding: 5px;
           svg {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             stroke: #ffffff;
             stroke-width: 1.2;
           }
@@ -114,8 +114,8 @@
   &:hover {
     .shake {
       display: inline-block;
-      animation: shake 0.5s;
-      animation-duration: 0.5s;
+      animation: shake 0.2s;
+      animation-duration: 0.2s;
       animation-timing-function: ease;
       animation-delay: 0s;
       animation-iteration-count: 1;
@@ -133,7 +133,7 @@
           transform: rotate(0) scale(1.2);
         }
         75% {
-          transform: rotate(45deg) scale(1.2);
+          transform: rotate(-45deg) scale(1.2);
         }
         100% {
           transform: rotate(0);
