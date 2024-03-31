@@ -1,14 +1,14 @@
 <div class="memos">
   <h2>📃 MEMOS</h2>
   <div id="memos"></div>
-  <div class="limit">- 只展示最近10条MEMOS -
-    <br><a href="https://memos.morick66.com/explore">- 查看更多 -</a>
+  <div class="limit">
+      <a href="https://memos.morick66.com/explore" target="_blank">- 查看更多 -</a>
   </div>
 </div>
 <script>
   if (1) {
     let url = "https://memos.morick66.com";
-    fetch(url + "/api/v1/memo?creatorId=1&limit=10")
+    fetch(url + "/api/v1/memo?creatorId=1&limit=5")
       .then((res) => res.json())
       .then((data) => {
         // 注意修改域名和用户id
@@ -17,7 +17,7 @@
         data.forEach((item) => {
           items.push(Format(item));
         });
-        if (items.length == 10)
+        if (items.length == 5)
           document.querySelector(".limit").style.display = "block";
         items.forEach((item) => {
           html += `

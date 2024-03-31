@@ -168,7 +168,6 @@ div.memos {
     margin-top: 2rem;
     overflow: auto;
     scrollbar-width: none;
-    height: 600px;
 }
 
 .memos_item {
@@ -245,13 +244,14 @@ span.memos_date {
 /* 提醒 */
 
 .limit {
-  transition: all 0.3s ease-in-out;
-  color: var(--card-text-color-main);
-}
-
-.limit {
   display: none;
   text-align: center;
   margin-top: 20px;
   color: var(--card-text-color-main);
+  transition: all 0.3s ease-in-out;
+  color: var(--card-text-color-main);
+  a {
+    color: var(--card-text-color-secondary);
+    font-size: 15px;
+  }
 }
