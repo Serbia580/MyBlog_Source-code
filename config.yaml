@@ -91,7 +91,7 @@ params:
     opengraph:
       enabled: false
       local: false
-      src:
+      src: 
 
   colorScheme:
     # Display toggle
