@@ -1,6 +1,5 @@
-
 {{ define "main" }}
-
+    {{ partial "banner" . }}  
     {{ if .Params.links }}
         {{ partial "article/components/links" . }}
     {{ end }}

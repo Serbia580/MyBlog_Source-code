@@ -1,5 +1,7 @@
 ---
 title: 友链
+description: 学习&进步
+image: /images/banner/banner-1.png
 slug: links
 layout: links
 links:

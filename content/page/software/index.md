@@ -1,6 +1,7 @@
 ---
 title: 软件
 description: 一些使用体验不错的软件与工具们。
+image: /images/banner/banner-2.png
 slug: software
 layout: software
 menu:

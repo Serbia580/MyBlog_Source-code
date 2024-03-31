@@ -1,6 +1,6 @@
 {{ define "body-class" }}template-archives{{ end }}
 {{ define "main" }}
-
+    {{ partial "banner" . }}  
     {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
     {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
     {{ $filtered := ($pages | intersect $notHidden) }}

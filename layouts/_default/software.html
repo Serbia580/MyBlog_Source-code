@@ -1,15 +1,7 @@
 {{ define "body_classes" }}page-software{{ end }} 
 {{ define "main" }}
 <!-- 软件页面 -->
-<div class="section-card">
-  <div class="section-details">
-    <h3 class="section-count">{{ T "list.page" (len .Pages) }}</h3>
-    <h1 class="section-term">{{ .Title }}</h1>
-    {{ with .Params.description }}
-    <h2 class="section-description">{{ . }}</h2>
-    {{ end }}
-  </div>
-</div>
+{{ partial "banner" . }}  
 <div class="article-list--compact software">
   {{ range $app := .Params.software }}
     <article>

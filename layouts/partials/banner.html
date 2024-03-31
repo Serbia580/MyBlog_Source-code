@@ -1,0 +1,11 @@
+<div class="banner">
+    <div class="banner-image">
+        <img src="{{ .Params.image }}" alt="">
+    </div>
+    <div class="banner-details">
+        <h1 class="banner-term">{{ .Title }}</h1>
+        {{ with .Params.description }}
+            <div class="banner-description">{{ . }}</div>
+        {{ end }}
+    </div>
+</div>

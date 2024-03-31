@@ -1,6 +1,7 @@
 ---
 title: 装备
 description: 个人使用的装备
+image: /images/banner/banner-4.png
 slug: equipment
 layout: equipment
 menu:

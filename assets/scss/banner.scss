@@ -1,0 +1,44 @@
+.banner {
+    position: relative;
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: var(--shadow-l4);
+    @include respond(md) {
+        height: 300px;
+    }
+    .banner-details {
+        color: #fff;
+        h1 {
+            font-size: 30px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            @include respond(md) {
+                left: 50px;
+            }
+        }
+        div.banner-description {
+            font-size: 18px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            left: 20px;
+            @include respond(md) {
+                left: 50px;
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: var(--card-border-radius);
+        z-index: -1;
+        background-color: #ffffff9f;
+    }
+}
