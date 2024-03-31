@@ -7,21 +7,42 @@
   position: relative;
   width: 100%;
   height: max-content;
-  background-image: linear-gradient(0deg, #3c8ce7 10%, #00eaff 100%);
+  background-image: linear-gradient(180deg, transparent 0%, var(--card-background) 55%);
   border-radius: var(--card-border-radius);
   box-shadow: var(--shadow-l1);
   padding: var(--card-padding);
+  .info-bg {
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--card-border-radius);
+      z-index: -1;
+    }
+  }
   .site-avatar {
-    margin: 0 auto;
+    position: relative;
+    margin: 50px auto;
     img {
       width: 118px;
       border-radius: 100%;
       box-shadow: var(--shadow-l1);
-      margin: 50px 0;
+    }
+    div.avatar-icon {
+      font-size: 20px;
+      padding: 6px;
+      border-radius: 100%;
+      background-color: var(--card-background);
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
     }
   }
   .site-meta {
-    color: #fff;
+    color: var(--card-text-color-main);
     .site-name {
       font-size: 23px;
       font-weight: bold;
@@ -35,38 +56,38 @@
   .link {
     position: absolute;
     top: 20px;
-    right: 15px;
+    right: 10px;
     a {
       display: flex;
       color: #6d6d6d;
       align-items: center;
       line-height: 30px;
       padding: 0 5px 0 10px;
-      font-size: 15px;
+      font-size: 12px;
       background-color: #ffffff9d;
       border-radius: 20px;
       transition: background-color 0.2s;
     }
     svg {
       color: #6d6d6d;
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
     }
     display: none;
   }
   .link > a:hover {
-    background-color: #ffffffd5;
+    background-color: #ffffff;
   }
   .social {
     position: absolute;
-    bottom: 30px;
+    bottom: 25px;
     right: 20px;
     span {
       display: inline-block;
       a {
         display: block;
-        background-color: #ffffff6e;
         border-radius: 100%;
+        box-shadow: var(--shadow-l4);
         .svg {
           display: flex;
           justify-content: center;
@@ -75,16 +96,16 @@
           svg {
             width: 20px;
             height: 20px;
-            stroke: #ffffff;
+            stroke: var(--card-text-color-main);
             stroke-width: 1.2;
           }
         }
       }
       &:hover {
         a {
-          background-color: #fff;
+          box-shadow: var(--shadow-l1);
           svg {
-            stroke: #3c8ce7;
+            stroke-width: 2;
           }
         }
       }
