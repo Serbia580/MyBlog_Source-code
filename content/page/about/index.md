@@ -1,5 +1,7 @@
 ---
 title: 关于
+description: 关于我&关于本站
+image: /images/banner/banner-5.svg
 slug: about
 layout: about
 comments: true

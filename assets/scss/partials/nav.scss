@@ -67,7 +67,7 @@
         li {
           position: relative;
           vertical-align: middle;
-          padding: 10px 15px;
+          padding: 5px 15px;
           box-sizing: border-box;
           border-radius: var(--card-border-radius);
           a {
@@ -85,11 +85,7 @@
           }
 
           &:hover {
-            background-image: linear-gradient(
-              135deg,
-              #3c8ce7 10%,
-              #00eaff 100%
-            );
+            background-color: var(--main-color);
             a {
               color: aliceblue;
             }
@@ -113,16 +109,6 @@
     @include respond(md) {
       display: block;
       text-align: right;
-    }
-    &:hover {
-      background-image: linear-gradient(
-        135deg,
-        #3c8ce7 10%,
-        #00eaff 100%
-      );
-      svg {
-        color: aliceblue;
-      }
     }
   }
 

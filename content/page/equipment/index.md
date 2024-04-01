@@ -17,7 +17,7 @@ equipment:
     link: 
   - title: 京造jz990
     image: jz990.png
-    note: 不懂键盘，凑合用
+    note: 第一把机械键盘，打字体验很不错
     link: 
   - title: 罗技G102二代
     image: g102.png

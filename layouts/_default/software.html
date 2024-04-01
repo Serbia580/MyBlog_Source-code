@@ -2,34 +2,38 @@
 {{ define "main" }}
 <!-- 软件页面 -->
 {{ partial "banner" . }}  
-<div class="article-list--compact software">
-  {{ range $app := .Params.software }}
-    <article>
-      <a href="{{ $app.link }}" target="_blank">
-      <!-- 图标 -->
-      <div class="app-icon">
-        <img loading="lazy" decoding="async" src="{{ $app.image }}" />
-      </div>
-      <!-- 信息 -->
-      <div class="app-info">
-        <div class="app-title">{{ $app.title }}</div>
-        <div class="note">{{ $app.note }}</div>
-      </div>
-      <!-- 红绿灯 -->
-      {{ if eq .paid "free" }}
-      <div class="paid free"></div>
-      {{ end }} 
-      {{ if eq .paid "pay" }}
-      <div class="paid pay"></div>
-      {{ end }} 
-      {{ if eq .paid "open" }}
-      <div class="paid open"></div>
+  <div class="article-list--compact software">
+    {{ range $app := .Params.software }}
+      <article>
+        <a href="{{ $app.link }}" target="_blank">
+        <!-- 图标 -->
+        <div class="app-icon">
+          <img loading="lazy" decoding="async" src="{{ $app.image }}" />
+        </div>
+        <!-- 信息 -->
+        <div class="app-info">
+          <div class="app-title">{{ $app.title }}</div>
+          <div class="note">{{ $app.note }}</div>
+        </div>
+        <!-- 红绿灯 -->
+        {{ if eq .paid "free" }}
+        <div class="paid free"></div>
+        {{ end }} 
+        {{ if eq .paid "pay" }}
+        <div class="paid pay"></div>
+        {{ end }} 
+        {{ if eq .paid "open" }}
+        <div class="paid open"></div>
+        {{ end }}
+      </a>
+      {{ if $app.article }}
       {{ end }}
-    </a>
-    {{ if $app.article }}
-    {{ end }}
-    </article>
+      </article>
 
-  {{ end }}
-</div>
+    {{ end }}
+  </div>
+  <script>
+    var mainColor = '#2D9267'; 
+    document.documentElement.style.setProperty('--main-color', mainColor);
+</script>
 {{ end }}
