@@ -1,7 +1,7 @@
 ---
 title: 友链
 description: 学习&进步
-image: /images/banner/banner-1.png
+image: /images/banner/banner-4.svg
 slug: links
 layout: links
 links:
@@ -14,9 +14,9 @@ links:
     website: https://blog.zhheo.com/
     image: https://bu.dusays.com/2022/12/28/63ac2812183aa.png
 menu:
-    main: 
-        weight: -60
-        params:
-            icon: link
+  main:
+    weight: -60
+    params:
+      icon: link
 comments: true
 ---
