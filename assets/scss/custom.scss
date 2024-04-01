@@ -1,6 +1,6 @@
 //归档页面双栏
 /* 归档页面两栏 */
-@media (min-width: 1024px) {
+@include respond(md) {
   .article-list--compact {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,7 +21,6 @@
 //--------------------------------------------------
 //链接三栏
 @media (min-width: 1024px) {
-
   .article-list--compact.software,
   .article-list--compact.links {
     display: grid;
@@ -29,14 +28,6 @@
     background: none;
     box-shadow: none;
     gap: 10px;
-
-    article {
-      background: var(--card-background);
-      border: none;
-      box-shadow: var(--shadow-l2);
-      margin-bottom: 8px;
-      border-radius: var(--card-border-radius);
-    }
   }
 }
 
@@ -125,15 +116,13 @@
     overflow: hidden;
 
     img {
-      transition: transform 0.3s ease;
+      transition: transform 0.7s ease;
     }
   }
 
   :hover {
     img {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
   }
 }
-
-

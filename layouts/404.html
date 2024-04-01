@@ -1,7 +1,18 @@
 {{ define "main" }}
+{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+{{ $filtered := ($pages | intersect $notHidden) }}
+{{ $pag := .Paginate ($filtered) }} 
     <div class="not-found-card">
         <h1 class="article-title">{{ T "notFound.title" }}</h1>
         <h2 class="article-subtitle">{{ T "notFound.subtitle" }}</h2>
     </div>
-    {{ partialCached "footer/footer" . }}
+    <div class="post-list">
+        <h2 class="section-title">查看近期文章</h2>
+        <section class="article-list">
+            {{ range first 9 $pag.Pages }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+        </section>
+    </div>
 {{ end }}

@@ -3,10 +3,12 @@
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: var(--section-separation); /* 中间空10px间距 */
+	@include respond(md) {
+		grid-template-columns: repeat(3, 1fr);
+	}	
 	@include respond(lg) {
 		grid-template-columns: repeat(4, 1fr);
-		gap: var(--section-separation); /* 中间空10px间距 */
-	  }	
+	}	
 }
 
 .equipment-card {
