@@ -1,6 +1,7 @@
 ---
 title: 装备
 description: 个人使用的装备
+color: '#816222'
 image: /images/banner/banner-2.svg
 slug: equipment
 layout: equipment

@@ -1,6 +1,7 @@
 ---
 title: 软件
 description: 一些使用体验不错的软件与工具们。
+color: '#2D9267'
 image: /images/banner/banner-3.svg
 slug: software
 layout: software

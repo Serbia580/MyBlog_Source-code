@@ -11,6 +11,11 @@
         <script>
             new LingQue.Monitor().init({id:"3Ht9P5CJ6OI0KrUx"});
         </script>
+        <!-- 页面主题色脚本 -->
+        <script>
+            var mainColor = '{{ .Params.color }}'; 
+            document.documentElement.style.setProperty('--main-color', mainColor);
+        </script>
     </head>
     <body class="{{ block `body-class` . }}{{ end }}">
         {{- partial "loading" . -}}

@@ -1,6 +1,7 @@
 ---
 title: 友链
 description: 学习&进步
+color: '#55276F'
 image: /images/banner/banner-4.svg
 slug: links
 layout: links
