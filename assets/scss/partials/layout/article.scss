@@ -48,24 +48,6 @@
                 max-width: 100%;
                 height: auto;
             }
-
-            .abstract {
-                padding: 20px;
-                background-color: var(--abstract-background);
-                box-shadow: var(--shadow-l1);
-                border-radius: var(--card-border-radius);
-                margin-bottom: 10px;
-
-                .title {
-                    font-size: 15px;
-                    color: var(--card-text-color-secondary);
-                    margin: 0;
-                }
-
-                .article-description {
-                    margin: 0;
-                }
-            }
         }
 
         .article-footer {

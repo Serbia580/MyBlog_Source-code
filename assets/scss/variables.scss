@@ -135,8 +135,6 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
     --kbd-border-color: #dadada;
 
-    --abstract-background: #F7F7F9;
-
     &[data-scheme="dark"] {
         --code-background-color: #272822;
         --code-text-color: rgba(255, 255, 255, 0.9);
@@ -146,7 +144,6 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
         --blockquote-background-color: rgb(75 75 75);
 
-        --abstract-background: #21232A;
     }
 }
 
