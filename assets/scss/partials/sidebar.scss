@@ -19,6 +19,7 @@
   }
 
   header {
+    margin-left: 15px;
     .site-avatar {
       position: relative;
       margin: 0;
@@ -84,9 +85,7 @@
     padding-top: 10px;
 
     li {
-      margin-bottom: 30px;
       padding: 0;
-
       svg {
         stroke: currentColor;
         stroke-width: 1.33;
@@ -99,6 +98,14 @@
         display: inline-flex;
         color: var(--body-text-color);
         gap: 20px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        padding: 10px 30px 10px 10px;
+        border-radius: var(--card-border-radius);
+        &:hover {
+          background-color: var(--main-color);
+          color: aliceblue;
+        }
       }
 
       &.current {
