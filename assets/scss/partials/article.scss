@@ -167,9 +167,14 @@
             padding: var(--small-card-padding);
             gap: 15px;
         }
-
         &:not(:last-of-type) {
             border-bottom: 1.5px solid var(--card-separator-color);
+        }
+
+        @include respond(md) {
+            &:not(:last-of-type) {
+                border-bottom: none;
+            }
         }
 
         .article-details {

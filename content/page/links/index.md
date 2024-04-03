@@ -5,6 +5,12 @@ color: '#55276F'
 image: /images/banner/banner-4.svg
 slug: links
 layout: links
+menu:
+  main:
+    weight: -60
+    params:
+      icon: link
+comments: true
 links:
   - title: L1nSn0w's Blog
     description: 无限进步.✍️
@@ -14,10 +20,4 @@ links:
     description: 分享设计与科技生活
     website: https://blog.zhheo.com/
     image: https://bu.dusays.com/2022/12/28/63ac2812183aa.png
-menu:
-  main:
-    weight: -60
-    params:
-      icon: link
-comments: true
 ---
