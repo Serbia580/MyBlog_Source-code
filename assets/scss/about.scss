@@ -149,31 +149,32 @@
             padding: 0 15px;
             line-height: 1.5em;
         }
-        .la-widget {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            padding-left: 20px;
-            min-height: max-content;
-            span {
-                padding: 5px 0; 
-            }
-            .name {
-                font-size: 15px;
-                color: #fff;
-            }
-            .number {
-                color: #fff;
-                display: block;
-                font-size: 30px;
-                font-weight: bold;
-            }
-        }
         .statistic {
             h3 {
                 color: #fff;
             }
             position: relative;
             background-color: transparent;
+            .content {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                padding-left: 20px;
+                min-height: max-content;
+                span {
+                    padding: 10px 0; 
+                }
+                .name {
+                    font-size: 15px;
+                    color: #fff;
+                }
+
+                .num {
+                    color: #fff;
+                    display: block;
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+            }
             .bgimg {
                 overflow: hidden;
                 img {

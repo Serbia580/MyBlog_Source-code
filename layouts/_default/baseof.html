@@ -36,7 +36,9 @@
                     {{- block "main" . }}{{- end }}
                     {{ partial "footer/include.html" . }}   
                 </div>
-                {{- block "right-sidebar" . -}}{{ end }}
+                <div class="article-sidebar">
+                    {{- block "right-sidebar" . -}}{{ end }}
+                </div>
             </main>
         </div>
         {{- partial "footer/footer" . -}}

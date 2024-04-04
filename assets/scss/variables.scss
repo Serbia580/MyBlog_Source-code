@@ -12,9 +12,12 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   全局风格
 */
 :root {
+    --nav-font-size: 2.1rem;
+    // 导航栏行高
+    --nav-height: 70px;
     // 主题色
     --main-color: #6A6D73;
-    --main-top-padding: 90px;
+    --main-top-padding: calc(var(--nav-height) + 20px);
     // 全局宽度
     --main-container-width: 1200px;
 

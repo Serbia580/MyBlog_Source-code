@@ -50,83 +50,30 @@
                 <p>本站大概率会分享我的一些折腾的记录。以及一些莫名其妙的碎碎念。</p>
             </div>
         </div>
-        <div class="statistic card">
+        <div id="statistic"class="statistic card">
             <h3>数据统计</h3>
-                <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/3Hs6RXBn6bsKkvZB/quote.js?theme=0&f=12&display=0,0,1,1,1,1,1,0"></script>
-                <div class="link"><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/3Hs6RXBn6bsKkvZB"><img src="https://sdk.51.la/icon/1-1.png"></a></div>
-                <div class="bgimg">
-                    <img src="/images/bgimg.png" alt="">
-                </div>
+            <div class="content"></div>
+            <div class="link"><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/3Hs6RXBn6bsKkvZB"><img src="https://sdk.51.la/icon/1-1.png"></a></div>
+            <div class="bgimg">
+                <img src="/images/bgimg.png" alt="">
+            </div>
         </div>
     </div>
 </div>
 {{ if not (eq .Params.comments false) }}
 {{ partial "comments/include" . }}
 {{ end }}
+
+
+<!-- js -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-// 递归函数，用于删除所有子元素的内联样式并设置特定的 ID 和类
-function processChildren(element, parentId) {
-    var children = element.children;
-    for (var i = 0; i < children.length; i++) {
-        var child = children[i];
-        // 删除子元素的内联样式
-        child.removeAttribute("style");
-        // 设置特定的 ID
-        if (parentId !== null) {
-            switch (i) {
-                case 0:
-                    child.id = "todayVisitors";
-                    break;
-                case 1:
-                    child.id = "todayVisits";
-                    break;
-                case 2:
-                    child.id = "yesterdayVisitors";
-                    break;
-                case 3:
-                    child.id = "yesterdayVisits";
-                    break;
-                case 4:
-                    child.id = "thisMonthVisits";
-                    break;
-            }
-        }
-        if (child.children.length > 0) {
-            // 如果子元素还有子元素，则继续递归
-            processChildren(child, parentId);
-        } else {
-            // 如果子元素没有子元素，则设置类
-            switch (child.tagName.toLowerCase()) {
-                case 'span':
-                    if (i === 0) {
-                        child.classList.add('name');
-                    } else if (i === 1) {
-                        child.classList.add('number');
-                    }
-                    break;
-            }
-            // 移除三级子元素的ID
-            child.removeAttribute("id");
-        }
-    }
-}
-
-// 获取所有类名为 "la-widget" 的元素
-var widgets = document.getElementsByClassName("la-widget");
-
-// 循环遍历这些元素
-for (var i = 0; i < widgets.length; i++) {
-    var widget = widgets[i];
-    // 删除当前元素的内联样式
-    widget.removeAttribute("style");
-    // 设置当前元素的唯一 ID
-    var uniqueId = i;
-    widget.id = uniqueId;
-    // 递归处理子元素
-    processChildren(widget, uniqueId);
-}
-
+// 链接替换即可，不需要后面的参数
+fetch('https://v6-widget.51.la/v6/3Hs6RXBn6bsKkvZB/quote.js').then(res => res.text()).then((data) => {
+    let title = ['最近活跃访客', '今日人数', '今日访问', '昨日人数', '昨日访问', '本月访问', '总访问量']
+    let num = data.match(/(?<=<\/span><span>).*?(?=<\/span><\/p>)/g)
+    let order = [1, 3, 2, 4, 5] // 新增  可排序，如果需要隐藏则删除对应数字即可。
+    // 示例：[1, 3, 2, 4, 5] 显示 ['今日人数', '昨日人数', '今日访问', '昨日访问', '本月访问']，不显示 最近活跃访客(0) 和 总访问量(6)
+    for (let i = 0; i < order.length; i++) { document.querySelectorAll('#statistic .content')[0].innerHTML += '<div><span class="name">' + title[order[i]] + '</span><span class="num">' + num[order[i]] + '</span></div>' }
 });
 </script>
 {{ end }}

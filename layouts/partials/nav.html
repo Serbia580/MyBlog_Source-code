@@ -1,29 +1,32 @@
 <nav class="" id="navbar">
-    <div class="hamburger" type="button" id="toggleButton" aria-label="{{ T `toggleMenu` }}">
-        {{ partial "helper/icon" "hamburger" }}
-    </div>
     <div class="nav-main">
         <div class="title nav-left">
             <a href="{{ .Site.BaseURL | relLangURL }}">Morick</a>
         </div>
-        <div class="menu--commpect nav-center">
-            <ol class="menu" >
+        <div class="menu--commpect nav-center" id="switch">
+            <div class="menu" >
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
                 {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
-                <li {{ if $active }} class='current' {{ end }}>
+                <span {{ if $active }} class='current' {{ end }}>
                     <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>
                         <span>{{- .Name -}}</span>
                     </a>
-                </li>
+                </span>
                 {{ end }}
-            </ol>
+            </div>
+            <div class="page-name">
+                {{- .Title -}}
+            </div>
         </div>
         <div class="nav-right">
             <div class="search">
-                <a href="https://www.morick66.com/search">
+                <a href="/search/index.html">
                     {{ partial "helper/icon" "search" }}
                 </a>
+            </div>
+            <div class="hamburger" type="button" id="toggleButton" aria-label="{{ T `toggleMenu` }}">
+                {{ partial "helper/icon" "hamburger" }}
             </div>
             {{ if (default false .Site.Params.colorScheme.toggle) }}
                 <div class="dark-mode-toggle" id="dark-mode-toggle-2">
@@ -37,7 +40,7 @@
 
 <script>
     let lastScrollTop = 0;
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('switch');
   
     window.addEventListener('scroll', function() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;

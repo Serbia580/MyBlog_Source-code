@@ -118,10 +118,8 @@ main.main {
     min-width: 260px;
     max-width: 260px;
   }
-  &.sticky {
-    top: 0;
-    @include respond(md) {
-      position: sticky;
-    }
-  }
+}
+
+.article-sidebar {
+  margin-top: calc(var(--nav-height) + 20px);
 }
