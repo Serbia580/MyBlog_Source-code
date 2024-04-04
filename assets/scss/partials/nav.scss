@@ -4,8 +4,9 @@
   width: 100%;
   height: var(--nav-height);
   display: flex;
-  background-color: var(--card-background);
+  background-color: rgba(var(--card-background), 0.8);
   box-shadow: var(--shadow-l1);
+  backdrop-filter: blur(16px);
   z-index: 50;
   overflow: hidden;
   // 滚动隐藏
@@ -13,8 +14,8 @@
   .nav-main {
     position: relative;
     display: flex;
-    width: calc(var(--main-container-width) + 20px);
-    padding: 0 10px;
+    width: calc(var(--main-container-width) + 40px);
+    padding: 0 20px;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
