@@ -22,8 +22,8 @@
     .title {
       font-family: "XLF";
       font-weight: 900;
-      font-size: 40px;
-      line-height: 40px;
+      font-size: 35px;
+      line-height: 35px;
       position: absolute;
       width: max-content;
     }
@@ -64,10 +64,10 @@
             align-items: center;
             color: var(--body-text-color);
             >span {
-              margin: 15px 0;
-              line-height: 40px;
+              margin: 10px 0;
+              line-height: calc(var(--nav-height)-30px);
               border-radius: var(--card-border-radius);
-              padding: 0 20px;
+              padding: 5px 20px;
               &:hover {
                 background-color: var(--main-color);
                 color: aliceblue;
@@ -85,7 +85,7 @@
       
       .page-name {
         display: none;
-        height: 70px;
+        height: var(--nav-height);
         color: var(--body-text-color);
         font-size: var(--nav-font-size);
         line-height: var(--nav-height);
