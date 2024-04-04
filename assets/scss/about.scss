@@ -12,53 +12,10 @@
     margin-top: 10px;
     color: var(--card-text-color-secondary);
 }
+
 .about {
     display: grid;
     gap: 20px;
-    .info {
-        height: auto;
-        display: grid;
-        gap: 20px;
-        
-        @include respond(xl) {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
-            height: 200px;
-        }
-
-        .name-card {
-            position: relative;
-            color: aliceblue;
-            height: 200px;
-            background: linear-gradient(120deg,#5b27ff 0,#00d4ff 100%);
-        }
-        .name {
-            position: absolute;
-            bottom: 30px;
-            text-align: left;
-            h2 {
-                margin: 0;
-                font-family: 'Virgil';
-                font-size: 50px;
-            }
-            p {
-                font-size: 20px;
-                margin: 0;
-            }
-        }
-        .motto {
-            div {
-                font-size: 25px;
-                line-height: 1.5em;
-                font-weight: bold;
-                padding: 0 20px;
-            }
-        }
-    }
-    .skill {
-        height: 300px;
-    }
 
     .Me {
         display: grid;

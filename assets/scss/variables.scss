@@ -4,15 +4,17 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 // 定义字体
 
 @font-face {
-    font-family: 'Virgil';
-    src: url(/font/Virgil.ttf) format('truetype');
+    font-family: 'XLF';
+    src: url(/font/乡立方黑体.ttf) format('truetype');
 }
+
+
 
 /*
 *   全局风格
 */
 :root {
-    --nav-font-size: 2.1rem;
+    --nav-font-size: 2.8rem;
     // 导航栏行高
     --nav-height: 70px;
     // 主题色

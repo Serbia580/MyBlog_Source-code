@@ -20,10 +20,10 @@
     align-items: center;
 
     .title {
-      font-family: "Virgil";
+      font-family: "XLF";
+      font-weight: 900;
       font-size: 40px;
       line-height: 40px;
-      font-weight: bold;
       position: absolute;
       width: max-content;
     }
@@ -47,7 +47,7 @@
         box-sizing: border-box;
         display: none;
         font-size: var(--nav-font-size);
-        font-weight: bold;
+        font-family: "XLF";
 
         @include respond(md) {
           display: block;
@@ -78,7 +78,6 @@
           &.current {
             a {
               color: var(--accent-color);
-              font-weight: bold;
             }
           }
         }
@@ -88,9 +87,10 @@
         display: none;
         height: 70px;
         color: var(--body-text-color);
-        font-weight: bold;
         font-size: var(--nav-font-size);
         line-height: var(--nav-height);
+        font-family: "XLF";
+
         @include respond(md) {
           display: block;
           width: 100%;
