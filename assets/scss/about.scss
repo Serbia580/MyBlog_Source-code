@@ -1,4 +1,157 @@
-.about .card{
+.about .card {
+  background-color: var(--card-background);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-l1);
+  padding: var(--card-padding);
+  box-sizing: border-box;
+  color: var(--card-text-color-main);
+}
+
+.about h3 {
+  font-size: 13px;
+  margin-top: 10px;
+  color: var(--card-text-color-secondary);
+}
+
+.about {
+  display: grid;
+  gap: 20px;
+
+  .Me {
+    display: grid;
+    gap: 20px;
+    @include respond(xl) {
+      grid-template-columns: 2fr 1fr;
+      gap: 25px;
+    }
+    .aboutMe {
+      display: grid;
+
+      @include respond(xl) {
+        grid-template-columns: auto 1fr;
+      }
+
+      img {
+        height: 100px;
+        margin: 10px;
+        border-radius: var(--card-border-radius);
+      }
+      @include respond(xl) {
+        img {
+          height: 200px;
+          margin: 10px;
+        }
+      }
+    }
+
+    .personalities {
+      position: relative;
+      height: 270px;
+      .title {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        text-align: right;
+        z-index: 1;
+        :nth-child(1) {
+          margin: 0;
+          font-size: 36px;
+          font-weight: bold;
+          color: #b3879d;
+        }
+        :nth-child(2) {
+          margin: 0;
+          font-size: 20px;
+          color: var(--card-text-color-secondary);
+        }
+      }
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 200px;
+      }
+    }
+  }
+  .interest {
+    padding-bottom: 30px;
+    .interest-content {
+      font-size: 20px;
+      text-align: center;
+      line-height: 1.5em;
+      span {
+        white-space: nowrap;
+        margin: 10px;
+        padding: 5px;
+      }
+      strong {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .aboutSite {
+    position: relative;
+    display: grid;
+    gap: 20px;
+    font-size: 15px;
+    @include respond(xl) {
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .about-site-content {
+      padding: 0 15px;
+      line-height: 1.5em;
+    }
+    .statistic {
+      h3 {
+        color: #fff;
+      }
+      position: relative;
+      background-color: transparent;
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        padding-left: 20px;
+        min-height: max-content;
+        span {
+          padding: 10px 0;
+        }
+        .name {
+          font-size: 15px;
+          color: #fff;
+        }
+
+        .num {
+          color: #fff;
+          display: block;
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+      .bgimg {
+        overflow: hidden;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: var(--card-border-radius);
+          z-index: -1;
+        }
+      }
+    }
+    .link {
+      position: absolute;
+      right: 30px;
+      bottom: 20px;
+    }
+  }
+}
+.event {
     background-color: var(--card-background);
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
@@ -7,148 +160,94 @@
     color: var(--card-text-color-main);
 }
 
-.about h3 {
-    font-size: 13px;
-    margin-top: 10px;
-    color: var(--card-text-color-secondary);
+.timeline {
+  box-sizing: border-box;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-.about {
-    display: grid;
-    gap: 20px;
+.timeline ol {
+  font-size: 0;
+  padding: 100px 0;
+}
 
-    .Me {
-        display: grid;
-        gap: 20px;
-        @include respond(xl) {
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
-        .aboutMe {
-            display: grid;
+.timeline ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 150px;
+  height: 3px;
+  background: var(--card-text-color-secondary);
+  &:first-child {
+    width: 100px;
+  }
+}
 
-            @include respond(xl) {
-                grid-template-columns: auto 1fr;
-            }
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
 
-            img {
-                height: 100px;
-                margin: 10px;
-                border-radius: var(--card-border-radius);
-            }
-            @include respond(xl) {
-                img {
-                    height: 200px;
-                    margin: 10px;
-                }
-            }
-        }
+.timeline ol li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--main-color);
+}
 
-        .personalities {
-            position: relative;
-            height: 270px;
-            .title {
-                position: absolute;
-                top: 20px;
-                right: 30px;
-                text-align: right;
-                z-index: 1;
-                :nth-child(1){
-                    margin: 0;
-                    font-size: 36px;
-                    font-weight: bold;
-                    color: #B3879D;
-                }
-                :nth-child(2) {
-                    margin: 0;
-                    font-size: 20px;
-                    color: var(--card-text-color-secondary);
-                }
-            }
-            img {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 200px;
-                
-            }
-        }
-    }
-    .interest {
-        padding-bottom: 30px;
-        .interest-content {
-            font-size: 20px;
-            text-align: center;
-            line-height: 1.5em;
-            span {
-                white-space: nowrap;
-                margin: 10px;
-                padding: 5px;
-            }
-            strong {
-                font-size: 25px;
-                font-weight: bold;
-            }
-        }
-    }
+.timeline ol li div {
+  position: absolute;
+  left: calc(100% + 7px);
+  width: max-content;
+  padding: 10px;
+  font-size: 15px;
+  white-space: normal;
+  border: 1px solid var(--card-text-color-main);
+  border-radius: var(--card-border-radius);
+}
 
-    .aboutSite {
-        position: relative;
-        display: grid;
-        gap: 20px;
-        font-size: 15px;
-        @include respond(xl) {
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
+.timeline ol li div::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
 
-        .about-site-content {
-            padding: 0 15px;
-            line-height: 1.5em;
-        }
-        .statistic {
-            h3 {
-                color: #fff;
-            }
-            position: relative;
-            background-color: transparent;
-            .content {
-                display: grid;
-                grid-template-columns: 1fr 1.5fr;
-                padding-left: 20px;
-                min-height: max-content;
-                span {
-                    padding: 10px 0; 
-                }
-                .name {
-                    font-size: 15px;
-                    color: #fff;
-                }
+.timeline ol li:nth-child(odd) div {
+  top: -15px;
+  transform: translateY(-100%);
+  border-bottom-left-radius: 0;
+}
 
-                .num {
-                    color: #fff;
-                    display: block;
-                    font-size: 30px;
-                    font-weight: bold;
-                }
-            }
-            .bgimg {
-                overflow: hidden;
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    border-radius: var(--card-border-radius);
-                    z-index: -1;
-                }
-            }
-        }
-        .link {
-            position: absolute;
-            right: 30px;
-            bottom: 20px;
-        }
-    }
+.timeline ol li:nth-child(odd) div::before {
+  top: 100%;
+  border-width: 10px 10px 0 0;
+  border-color: var(--card-text-color-main) transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+  top: calc(100% + 16px);
+  border-top-left-radius: 0;
+}
+
+.timeline ol li:nth-child(even) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent var(--card-text-color-main);
+}
+
+.timeline time {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }

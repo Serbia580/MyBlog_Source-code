@@ -60,6 +60,20 @@
         </div>
     </div>
 </div>
+<div class="event card">
+    <h3>博客大事记</h3>
+    <section class="timeline">
+        <ol>
+            {{ range $event := .Params.event }}
+            <li>
+                <div>
+                <time>{{ $event.date }}</time>{{ $event.content }}
+                </div>
+            </li>
+            {{ end }}
+        </ol>
+    </section>
+</div>
 {{ if not (eq .Params.comments false) }}
 {{ partial "comments/include" . }}
 {{ end }}
