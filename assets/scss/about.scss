@@ -1,3 +1,4 @@
+.event,
 .about .card {
   background-color: var(--card-background);
   border-radius: var(--card-border-radius);
@@ -6,7 +7,7 @@
   box-sizing: border-box;
   color: var(--card-text-color-main);
 }
-
+.event h3,
 .about h3 {
   font-size: 13px;
   margin-top: 10px;
@@ -102,8 +103,23 @@
     }
 
     .about-site-content {
-      padding: 0 15px;
+      padding: 5px 15px;
       line-height: 1.5em;
+      div {
+        margin: 10px 0;
+        .emoji {
+          display: inline-block;
+          width: 20px;
+          text-align: center;
+        }
+        .title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .content {
+          font-size: 20px;
+        }
+      }
     }
     .statistic {
       h3 {
@@ -150,14 +166,6 @@
       bottom: 20px;
     }
   }
-}
-.event {
-    background-color: var(--card-background);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--shadow-l1);
-    padding: var(--card-padding);
-    box-sizing: border-box;
-    color: var(--card-text-color-main);
 }
 
 .timeline {

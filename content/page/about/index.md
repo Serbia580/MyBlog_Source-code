@@ -15,7 +15,7 @@ event:
   - date: 2024-02-25
     content: 有了搭建博客的念头
   - date: 2024-02-27
-    content: 开始研究搭建博客
+    content: 开始研究并使用Hugo搭建博客
   - date: 2024-02-28
     content: 购买“https://www.morick66.fun/”域名
   - date: 2024-03-01
