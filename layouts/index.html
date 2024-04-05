@@ -7,7 +7,7 @@
     {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "tags" -}}
     {{- $terms := $taxonomy.Pages -}}
     {{ if $terms }}
-    <div class="tagCloud">
+    <div class="tagCloud no-copy">
         <h2 class="section-title">
             {{ $taxonomy.Title }}
             <button id="toggleBtn">See All</button>
@@ -62,7 +62,7 @@
     <!-- 标签云 -->
 
 <!-- 文章列表 -->
-<div class="site-main">
+<div class="site-main no-copy">
     <div class="post">
         <!-- 分类区域 -->
         <div>

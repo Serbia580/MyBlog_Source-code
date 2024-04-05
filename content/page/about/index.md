@@ -32,8 +32,6 @@ event:
     content: 网站正式上线
   - date: 2024-03-25
     content: 魔改Stack主题
-  - date: 2024-03-28
-    content: 爆改Stack主题
   - date: ∞
     content: 未完待续
 ---

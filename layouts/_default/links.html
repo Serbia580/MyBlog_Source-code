@@ -1,11 +1,11 @@
 {{ define "main" }}
     {{ partial "banner" . }}  
     {{ if .Params.aggregations }}
-        <h2 class="section-title" style="margin: 0;">aggregation</h2>
+        <h2 class="section-title" style="margin: 0;" class="no-copy">aggregation</h2>
         {{ partial "article/components/aggregations" . }}
     {{ end }}
     {{ if .Params.links }}
-        <h2 class="section-title" style="margin: 0;">links</h2>
+        <h2 class="section-title" style="margin: 0;" class="no-copy">links</h2>
         {{ partial "article/components/links" . }}
     {{ end }}
     <section class="links-content">
