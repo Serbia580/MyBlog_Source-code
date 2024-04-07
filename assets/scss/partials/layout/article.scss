@@ -129,7 +129,7 @@
         }
     }
 }
-
+.links-content,
 .article-content {
     font-family: var(--article-font-family);
     font-size: var(--article-font-size);
@@ -375,3 +375,22 @@
         font-family: monospace;
     }
 }
+
+// 友链页面内容
+.links-content {
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: calc(var(--card-padding) + 10px);
+    color: var(--card-text-color-main);
+    h2,
+    h3 {
+        margin-top: 0;
+        border: none;
+    }
+}
+
+h3.fold {
+    display: inline-block;
+}
+

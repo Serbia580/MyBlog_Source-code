@@ -1,0 +1,7 @@
+<!-- 折叠 -->
+<details>
+  <summary>
+    <h3 class="fold no-copy">{{ with .Get 0}}{{.}}{{else}}click to expand{{ end }}</h3>
+  </summary>
+  {{.Inner}}
+</details>

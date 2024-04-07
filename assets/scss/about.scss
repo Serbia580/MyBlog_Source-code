@@ -248,8 +248,8 @@
 }
 
 .timeline ol li:nth-child(even) div::before {
-  top: -8px;
-  border-width: 8px 0 0 8px;
+  top: -10px;
+  border-width: 10px 0 0 10px;
   border-color: transparent transparent transparent var(--card-text-color-main);
 }
 

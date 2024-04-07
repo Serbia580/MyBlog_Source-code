@@ -311,22 +311,3 @@
         height: 250px;
     }
 }
-
-// 友链页面内容
-.links-content {
-    background-color: var(--card-background);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--shadow-l1);
-    padding: calc(var(--card-padding) + 10px);
-    color: var(--card-text-color-main);
-    h2 {
-        margin-top: 0;
-    }
-    .highlight {
-        background-color: var(--code-background-color);
-        font-size: 20px;
-        .chroma {
-            background-color: transparent;
-        }
-    }
-}
