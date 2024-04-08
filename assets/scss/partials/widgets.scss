@@ -179,6 +179,7 @@ div.memos {
     color: var(--card-text-color-main);
   }
   position: sticky;
+  position: -webkit-sticky;
   top: var(--main-top-padding);
 }
 
@@ -280,6 +281,7 @@ span.memos_date {
 // 目录
 .widget--toc {
   position: sticky;
+  position: -webkit-sticky;
   top: var(--main-top-padding);
   background-color: var(--card-background);
   border-radius: var(--card-border-radius);
@@ -300,7 +302,7 @@ span.memos_date {
 
   #TableOfContents {
       overflow-x: auto;
-      max-height: 75vh;
+      max-height: 65vh;
 
       ol,
       ul {

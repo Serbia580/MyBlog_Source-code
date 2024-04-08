@@ -122,3 +122,27 @@
     }
   }
 }
+// 跳转
+#skip {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  z-index: 50;
+  transition: right 0.3s ease-in-out; /* 添加过渡效果 */
+
+  a {
+    display: block;
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    padding: 10px;
+    margin: 8px;
+    box-shadow: var(--shadow-l4);
+    @include respond(md) {
+      padding: 15px;
+      margin: 10px;
+    }
+  }
+  &.hidden {
+    right: -70px !important;
+  }
+}
