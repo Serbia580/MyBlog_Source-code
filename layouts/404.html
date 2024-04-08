@@ -3,14 +3,18 @@
 {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
 {{ $filtered := ($pages | intersect $notHidden) }}
 {{ $pag := .Paginate ($filtered) }} 
-    <div class="not-found-card">
-        <h1 class="article-title">{{ T "notFound.title" }}</h1>
-        <h2 class="article-subtitle">{{ T "notFound.subtitle" }}</h2>
+    <div class="banner no-copy">
+        <div class="banner-image">
+            <img src="/images/banner/banner-404.svg" alt="">
+        </div>
+        <div class="banner-404">
+            404
+        </div>
     </div>
     <div class="post-list">
-        <h2 class="section-title">查看近期文章</h2>
+        <h2 class="section-title">近期文章</h2>
         <section class="article-list">
-            {{ range first 9 $pag.Pages }}
+            {{ range first 6 $pag.Pages }}
                 {{ partial "article-list/default" . }}
             {{ end }}
         </section>

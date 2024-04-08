@@ -4,3 +4,15 @@
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
 }
+.banner-404 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 100%;
+    color: aliceblue;
+    font-family: 'XLF';
+    font-size: 150px;
+    @include respond(md) {
+        font-size: 300px;
+    }
+}

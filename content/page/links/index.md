@@ -1,7 +1,7 @@
 ---
 title: 友链
 description: 学习&进步
-color: '#55276F'
+color: "#7D4D96"
 image: /images/banner/banner-4.svg
 slug: links
 layout: links
@@ -20,7 +20,6 @@ aggregations:
     description: 一个精致的，带社交元素的个人网站发布平台，博客收录网站
     website: https://storeweb.cn/
     image: /images/aggregations/storeweb.png
-
 links:
   - title: L1nSn0w's Blog
     description: 无限进步.✍️

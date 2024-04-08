@@ -18,24 +18,35 @@
     --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
     --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
   }
+  .tk-submit-action-icon {
+    display: none;
+  }
   .twikoo .el-input-group__prepend,
-  .twikoo .tk-action-icon,
-  .twikoo .tk-submit-action-icon,
   .twikoo .tk-time,
   .twikoo .tk-comments-no,
   .twikoo .tk-comments-count {
     color: var(--twikoo-body-text-color);
   }
+  .twikoo .tk-nick {
+    color: var(--main-color);
+    font-size: 20px;
+  }
+  .twikoo .tk-action-icon {
+    color: var(--main-color);
+  }
+  .tk-master .tk-nick {
+    font-size: 15px;
+  }
+
   .twikoo .el-input__inner,
   .twikoo .el-textarea__inner,
   .twikoo .tk-preview-container,
   .twikoo .tk-content,
-  .twikoo .tk-nick,
   .twikoo .tk-send {
     color: var(--twikoo-body-text-color-main);
   }
-  .twikoo .el-button {
-    color: var(--twikoo-body-text-color) !important;
+  .twikoo .tk-preview {
+    color: var(--twikoo-body-text-color-main) !important;
   }
   .twikoo .el-input__count {
     color: var(--twikoo-body-text-color) !important;
@@ -43,6 +54,19 @@
   .OwO .OwO-body {
     background-color: var(--body-background) !important;
     color: var(--body-text-color) !important;
+  }
+  input,
+  input:focus {
+    border: 1px solid rgba(144, 147, 153, 0.31) !important;
+  }
+  textarea:focus {
+    border: 2px solid var(--main-color) !important; 
+  }
+  
+  .twikoo .tk-send {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+    border: none !important;
   }
 </style>
 
@@ -93,7 +117,7 @@
       hint.style.left = "50%";
       hint.style.width = "max-content";
       hint.style.transform = "translateX(-50%)";
-      hint.style.marginBottom = "5px";
+      hint.style.marginBottom = "10px";
       hint.style.boxShadow = "var(--shadow-l1)";
       hint.style.pointerEvents = "none";
       hint.textContent = hintText;
