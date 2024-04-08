@@ -35,6 +35,9 @@ footer.site-footer {
             @include respond(md) {
                 margin: 0 10px;
             }
+            :firsest-child {
+                margin-left: 0;
+            }
         }
     }
 }
