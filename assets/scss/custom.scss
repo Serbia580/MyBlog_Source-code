@@ -135,14 +135,14 @@
     background-color: var(--card-background);
     border-radius: var(--card-border-radius);
     padding: 10px;
-    margin: 8px;
-    box-shadow: var(--shadow-l4);
+    margin: 10px;
+    box-shadow: var(--shadow);
     @include respond(md) {
       padding: 15px;
-      margin: 10px;
+      margin: 15px;
     }
   }
   &.hidden {
-    right: -70px !important;
+    right: -80px !important;
   }
 }
