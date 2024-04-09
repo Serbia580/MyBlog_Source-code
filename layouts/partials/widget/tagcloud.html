@@ -1,7 +1,7 @@
 {{- $context := .Context -}}
 {{- $limit := default 500 .Params.limit -}}
 <section class="tagcloud--widget widget--card">
-    <h2>🔖 标签云</h2>
+    <h2>🔖 标签</h2>
     <div class="tagcloud-tags">
         {{ range first $limit $context.Site.Taxonomies.tags.ByCount }}
             <a href="{{ .Page.RelPermalink }}" class=".tagCloud-tag">
