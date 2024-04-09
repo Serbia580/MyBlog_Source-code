@@ -8,7 +8,7 @@
     {{- $HasWidgetNotTOC := false -}}
     {{- $TOCWidgetEnabled := false -}}
     {{- range .Site.Params.widgets.page -}}
-        {{- if ne .type "toc" -}}
+        {{- if ne .type "sticky" -}}
             {{ $HasWidgetNotTOC = true -}}
         {{- else -}}
             {{ $TOCWidgetEnabled = true -}}

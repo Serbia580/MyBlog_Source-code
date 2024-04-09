@@ -78,7 +78,8 @@ params:
       
     page:
       - type: info
-      - type: toc
+      - type: notice
+      - type: sticky
  
   opengraph:
     twitter:

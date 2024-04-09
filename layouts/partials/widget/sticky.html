@@ -1,0 +1,10 @@
+<div class="sticky">
+    {{ if (.Context.Scratch.Get "TOCEnabled") }}
+    <div class="widget--toc no-copy">
+      <h2>📑 目录</h2>
+      {{ .Context.TableOfContents }}
+    </div>
+  {{ end }}
+
+  {{ partial "widget/tagcloud" . }}
+</div>
