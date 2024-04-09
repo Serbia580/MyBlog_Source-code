@@ -1,7 +1,22 @@
 <script src="https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js"></script>
+<div class="comment">
+  <div class="title--comment">
+    <div class="title">
+      <h2>
+        <span class="icon">
+          {{ partial "helper/icon" "chat" }}
+        </span>
+        <span class="name">
+          评论
+        </span>
+      </h2>
+    </div>
+    <div id="setDefaultButton" class="no-copy">匿名评论</div>
+  </div>
 <div id="tcomment"></div>
+</div>
 <style>
-  .twikoo {
+  .comment {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -9,6 +24,40 @@
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
     padding: var(--card-padding);
+  }
+  .title--comment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .title--comment .title h2 {
+    margin: 0;
+    color: var(--main-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  .icon,
+  .name {
+    line-height: 1;
+  }
+  .name {
+    margin-left: 5px;
+  }
+  .icon svg {
+    vertical-align: middle;
+    height: 1em;
+  }
+  #setDefaultButton {
+    width: max-content;
+    height: 30px;
+    margin-left: auto;
+    cursor: pointer;
+    color: var(--body-text-color);
+    font-size: 15px;
+  }
+  #setDefaultButton:hover {
+    color: var(--main-color);
   }
   :root {
     --twikoo-body-text-color-main: rgba(0, 0, 0, 0.9);
@@ -133,5 +182,16 @@
       }
     }
   });
+</script>
+<script>
+  function setDefaultValues() {
+    const emailInput = document.querySelector('input[type="email"][name="mail"]');
+    emailInput.value = "anonymous@morick66.com";
+
+    const nickInput = document.querySelector('input[type="text"][name="nick"]');
+    nickInput.value = "匿名";
+  }
+
+  document.getElementById("setDefaultButton").addEventListener("click", setDefaultValues);
 </script>
 {{- end -}}
