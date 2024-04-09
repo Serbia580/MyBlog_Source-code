@@ -1,6 +1,6 @@
 ---
 title: 关于
-color: "#F25E62"
+color: "#973437"
 description: 关于我&关于本站
 image: /images/banner/banner-5.svg
 slug: about

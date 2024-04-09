@@ -53,19 +53,6 @@
         {{- $pages = $subsections -}}
         {{- $subsections = slice -}}
     {{- end -}}
-
-    {{- with $subsections -}}
-        <aside>
-            <h2 class="section-title">{{ T "list.subsection" (len $subsections) }}</h2>
-            <div class="subsection-list">
-                <div class="article-list--tile">
-                    {{ range . }}
-                        {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "section") }}
-                    {{ end }}
-                </div>
-            </div>
-        </aside>
-    {{- end -}}
     
     {{/* List only pages that are not a subsection */}}
     {{ $paginator := .Paginate $pages }}

@@ -78,7 +78,6 @@ params:
       
     page:
       - type: info
-      - type: notice
       - type: sticky
  
   opengraph:
