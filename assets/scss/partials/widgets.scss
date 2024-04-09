@@ -344,6 +344,11 @@ span.memos_date {
                   margin-bottom: 0;
               }
           }
+          a {
+            &:hover {
+              color: var(--main-color);
+            }
+          }
       }
       li.active-class > a {
           border-left: var(--heading-border-size) solid var(--accent-color);
