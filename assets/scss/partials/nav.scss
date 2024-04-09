@@ -4,9 +4,8 @@
   width: 100%;
   height: var(--nav-height);
   display: flex;
-  background-color: rgba(var(--card-background), 0.9);
+  background-color: var(--card-background);
   box-shadow: var(--shadow-l1);
-  backdrop-filter: blur(50px);
   z-index: 50;
   overflow: hidden;
   // 滚动隐藏
