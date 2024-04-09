@@ -26,6 +26,11 @@
       line-height: 35px;
       position: absolute;
       width: max-content;
+      a {
+        &:hover {
+          color: var(--main-color);
+        }
+      }
     }
     .menu--commpect {
       box-sizing: border-box;
