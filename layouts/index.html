@@ -70,13 +70,37 @@
             {{- $terms := $taxonomy.Pages -}}
             {{ if $terms }}
             <h2 class="section-title">{{ $taxonomy.Title }}</h2>
-            <div class="subsection-list">
-                <div class="article-list--tile">
-                    {{ range $terms }}
-                        {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
-                    {{ end }}
+            <div class="category-list">
+                <button id="scrollToLeft">
+                    {{ partial "helper/icon" "chevron-left" }}
+                </button>
+                <button id="scrollToRight">
+                    {{ partial "helper/icon" "chevron-right" }}
+                </button>
+                <div class="subsection-list" id="myBox">
+                    <div class="article-list--tile">
+                        {{ range $terms }}
+                            {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
+                        {{ end }}
+                    </div>
                 </div>
             </div>
+            <script>
+                const boxElement = document.getElementById('myBox');
+                const scrollToLeftButton = document.getElementById('scrollToLeft');
+                const scrollToRightButton = document.getElementById('scrollToRight');
+                const scrollStep = 500; // 定义每次滚动的固定长度（此处为50像素，您可以根据需要调整）
+
+                // 点击“滚动固定长度到左”按钮时的事件处理器
+                scrollToLeftButton.addEventListener('click', function() {
+                boxElement.scrollLeft -= scrollStep; // 减去固定长度，向左滚动
+                });
+
+                // 点击“滚动固定长度到右”按钮时的事件处理器
+                scrollToRightButton.addEventListener('click', function() {
+                boxElement.scrollLeft += scrollStep; // 增加固定长度，向右滚动
+                });
+            </script>
             {{ end }}
         </div>
         <!-- 分类区域 -->
@@ -110,4 +134,3 @@
         {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 </div>
 {{ end }}
-

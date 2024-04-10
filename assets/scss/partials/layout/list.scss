@@ -6,9 +6,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-
     --separation: 15px;
-
     .section-term {
         font-size: 2.2rem;
         margin: 0;
@@ -45,12 +43,48 @@
     }
 }
 
+.category-list {
+    position: relative;
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border: none;
+        background: none;
+        border-radius: var(--card-border-radius);
+        stroke: #fff;
+        width: 40px;
+        height: 40px;
+        transition: border-radius .7s, background-color .2s;
+        &:hover {
+            background-color: #ffffff5d;
+            border-radius: 100%;
+        }
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        
+        svg {
+            width: 35px;
+            height: 35px;
+        }
+    }
+    #scrollToLeft {
+        left: 5px;
+    }
+    #scrollToRight {
+        right: 5px;
+    }
+    margin-bottom: 15px;
+}
+
 .subsection-list {
     overflow-x: auto;
-
+    scroll-behavior: smooth;
+    scrollbar-width: none;
     .article-list--tile {
         display: flex;
-        padding-bottom: 15px;
 
         article {
             width: 250px;
