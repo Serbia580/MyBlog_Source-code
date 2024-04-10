@@ -344,7 +344,6 @@
     /// Negative margins
     blockquote,
     figure,
-    .highlight,
     pre,
     .gallery,
     .video-wrapper,
@@ -391,7 +390,54 @@
     }
 }
 
-h3.fold {
-    display: inline-block;
+.fold-box {
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    background-color: var(--main-color);
+    color: #fff;
+    .fold p {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        font-size: 1.25em;
+    }
+    .fold-content {
+        padding-left: 20px;
+        p {
+            padding: 0;
+            margin: 0;
+        }
+    }
 }
 
+// 文件位置：~/assets/scss/custom/_custom.scss
+
+blockquote.quote-center {
+    position: relative;
+    border-left: none;
+    padding-left: 0;
+    border: none;
+    p{
+        text-align: center !important;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+    &::before {
+        position: absolute;
+        left: 0;
+        content: '“';
+        color: var(--color-contrast-low);
+        font-size: 3em;
+        font-weight: bold;
+        margin-top: -0.42em;
+    }
+    &::after {
+        position: absolute;
+        right: 0;
+        content: '”';
+        color: var(--color-contrast-low);
+        font-size: 3em;
+        font-weight: bold;
+        margin-top: -0.7em;
+    }
+}

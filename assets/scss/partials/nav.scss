@@ -11,7 +11,6 @@
   // 滚动隐藏
 
   .nav-main {
-    position: relative;
     display: flex;
     width: calc(var(--main-container-width) + 40px);
     padding: 0 20px;
@@ -24,7 +23,6 @@
       font-weight: 900;
       font-size: 35px;
       line-height: 35px;
-      position: absolute;
       width: max-content;
       a {
         &:hover {
@@ -32,78 +30,93 @@
         }
       }
     }
-    .menu--commpect {
-      box-sizing: border-box;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      transition: top 0.3s;
-      overflow: hidden;
-
-      &.hidden {
-        top: calc(-1 * var(--nav-height));
+    .nav-icon {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      svg {
+        stroke-width: 2;
+        color: var(--body-text-color);
       }
-
-      div.menu {
-        padding: 0;
-        margin: 0;
+    }
+    .nav-center {
+      position: relative;
+      overflow: hidden;
+      height: var(--nav-height);
+      width: 100%;
+      .menu--commpect {
         box-sizing: border-box;
-        display: none;
-        font-size: var(--nav-font-size);
-        font-family: "XLF";
-
-        @include respond(md) {
-          display: block;
-          background-color: transparent;
-          box-shadow: none;
+        position: absolute;
+        top: 0;
+        transition: top 0.3s;
+  
+        &.hidden {
+          top: calc(-1 * var(--nav-height));
         }
-
-        >span {
-          display: inline-block;
-          vertical-align: middle;
-          border-radius: var(--card-border-radius);
-          a {
-            display: inline-flex;
-            align-items: center;
-            color: var(--body-text-color);
-            >span {
-              margin: 10px 0;
-              line-height: calc(var(--nav-height)-30px);
-              border-radius: var(--card-border-radius);
-              padding: 5px 10px;
-              &:hover {
-                background-color: var(--main-color);
-                color: aliceblue;
+  
+        div.menu {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          display: none;
+          font-size: var(--nav-font-size);
+          height: var(--nav-height);
+          font-family: "XLF";
+  
+          @include respond(md) {
+            display: block;
+            background-color: transparent;
+            box-shadow: none;
+          }
+  
+          >span {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: var(--card-border-radius);
+            a {
+              display: inline-flex;
+              align-items: center;
+              color: var(--body-text-color);
+              height: var(--nav-height);
+              >span {
+                margin: 10px 0;
+                line-height: calc(var(--nav-height)-10px);
+                border-radius: var(--card-border-radius);
+                padding: 5px 10px;
+                &:hover {
+                  background-color: var(--main-color);
+                  color: aliceblue;
+                }
+              }
+            }
+  
+            &.current {
+              a {
+                color: var(--accent-color);
               }
             }
           }
-
-          &.current {
-            a {
-              color: var(--accent-color);
-            }
+        }
+        
+        .page-name {
+          display: none;
+          height: var(--nav-height);
+          color: var(--body-text-color);
+          font-size: var(--nav-font-size);
+          line-height: var(--nav-height);
+          font-family: "XLF";
+          padding-left: 10px;
+  
+          @include respond(md) {
+            display: block;
+            width: 100%;
           }
         }
       }
-      
-      .page-name {
-        display: none;
-        height: var(--nav-height);
-        color: var(--body-text-color);
-        font-size: var(--nav-font-size);
-        line-height: var(--nav-height);
-        font-family: "XLF";
-
-        @include respond(md) {
-          display: block;
-          width: 100%;
-        }
-      }
     }
+
     .nav-right {
-      position: absolute;
       display: flex;
       flex-direction: row;
       right: 10px;

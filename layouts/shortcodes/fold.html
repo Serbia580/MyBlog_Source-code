@@ -1,7 +1,9 @@
 <!-- 折叠 -->
-<details>
-  <summary>
-    <h3 class="fold no-copy">{{ with .Get 0}}{{.}}{{else}}click to expand{{ end }}</h3>
+<details class="fold-box">
+  <summary class="fold">
+    <p class="fold-title no-copy">{{ with .Get 0}}{{.}}{{else}}click to expand{{ end }}</p>
   </summary>
-  {{.Inner}}
+  <div class="fold-content">
+    {{.Inner}}
+  </div>
 </details>

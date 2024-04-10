@@ -3,20 +3,25 @@
         <div class="title nav-left">
             <a href="{{ .Site.BaseURL | relLangURL }}">Morick</a>
         </div>
-        <div class="menu--commpect nav-center" id="switch">
-            <div class="menu" >
-                {{ $currentPage := . }}
-                {{ range .Site.Menus.main }}
-                {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
-                <span {{ if $active }} class='current' {{ end }}>
-                    <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>
-                        <span>{{- .Name -}}</span>
-                    </a>
-                </span>
-                {{ end }}
-            </div>
-            <div class="page-name">
-                {{- .Title -}}
+        <div class="nav-icon">
+            {{ partial "helper/icon" "right" }}
+        </div>
+        <div class="nav-center">
+            <div class="menu--commpect" id="switch">
+                <div class="menu" >
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                    {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
+                    <span {{ if $active }} class='current' {{ end }}>
+                        <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>
+                            <span>{{- .Name -}}</span>
+                        </a>
+                    </span>
+                    {{ end }}
+                </div>
+                <div class="page-name">
+                    {{- .Title -}}
+                </div>
             </div>
         </div>
         <div class="nav-right">
